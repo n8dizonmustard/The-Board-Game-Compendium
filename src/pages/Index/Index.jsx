@@ -1,10 +1,10 @@
 import React from 'react';
 import PageHeader from '../../components/Header/Header';
 
-export default function Index({ user }){
+export default function Index({ user, handleLogout }){
     return (
         <>
-            <PageHeader user={user} />
+            <PageHeader user={user} handleLogout={handleLogout} />
             <h1>The Board Game Compendium</h1>
         </>
     )

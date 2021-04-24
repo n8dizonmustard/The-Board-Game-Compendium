@@ -35,7 +35,7 @@ function App() {
             <> 
              <Switch>
                 <Route exact path="/">
-                    <Index user={user} />
+                    <Index user={user} handleLogout={handleLogout} />
                 </Route>
             </Switch>
             </>
