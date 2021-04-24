@@ -51,7 +51,7 @@ export default function LoginPage(props){
                     type="email"
                    
                     name="email"
-                    placeholder="email"
+                    placeholder="Email"
                     value={ state.email}
                     onChange={handleChange}
                     required
@@ -59,7 +59,7 @@ export default function LoginPage(props){
                   <Form.Input
                     name="password"
                     type="password"
-                    placeholder="password"
+                    placeholder="Password"
                     value={ state.password}
                     onChange={handleChange}
                     required

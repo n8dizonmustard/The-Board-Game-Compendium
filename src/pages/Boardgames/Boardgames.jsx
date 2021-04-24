@@ -1,7 +1,7 @@
 import React from 'react';
 import PageHeader from '../../components/Header/Header';
 
-export default function Index({ user, handleLogout }){
+export default function Boardgames({ user, handleLogout }){
     return (
         <>
             <PageHeader user={user} handleLogout={handleLogout} />
