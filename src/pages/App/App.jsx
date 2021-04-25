@@ -4,11 +4,11 @@ import './App.css';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService'
-import Boardgames from '../Boardgames/Boardgames';
+import BoardgamesPage from '../BoardgamesPage/BoardgamesPage';
 
 
 function App() {
-
+// USER, LOGIN, SIGNUP
   const [user, setUser] = useState(userService.getUser()) // getUser decodes our JWT token, into a javascript object
   // this object corresponds to the jwt payload which is defined in the server signup or login function that looks like 
   // this  const token = createJWT(user); // where user was the document we created from mongo
@@ -22,19 +22,24 @@ function App() {
     setUser({user: null})
   }
 
-  useEffect(() => {
+// API DATA
+  // console.log(`${i}: ${data.games[i].name}`) // This is for calling bg name w/in data
+  const [bgData, setBgData] = useState({})
+
+  const makeApiCall = () => {
     let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?order_by=popularity&ascending=false&pretty=true&client_id=z3qRKx4kGS';
-    const makeApiCall = () => {
-      fetch(atlasApiUrl)
-        .then((res) => res.json())
-        .then((data) => {
-          for (let i in data.games){
-            console.log(`${i}: ${data.games[i].name}`)
-          }
-        });
-    };
+    fetch(atlasApiUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        setBgData(data.games)
+      });
+  };
+
+  useEffect(() => {
     makeApiCall();
   }, []);
+
+  console.log('this is the bgData state', bgData)
 
   return (
     <div className="App">
@@ -49,7 +54,7 @@ function App() {
             <> 
              <Switch>
                 <Route exact path="/">
-                    <Boardgames user={user} handleLogout={handleLogout} />
+                    <BoardgamesPage user={user} handleLogout={handleLogout} bgData={bgData} />
                 </Route>
             </Switch>
             </>
