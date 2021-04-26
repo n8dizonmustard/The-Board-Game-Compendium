@@ -42,7 +42,7 @@ export default function LoginPage(props){
         <>
           <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
             <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as='h2' color='red' textAlign='center'>
+            <Header as='h2' color='yellow' textAlign='center'>
             <Image src='https://d20diaries.files.wordpress.com/2017/12/d20-icon-34414-jpeg.png' /> Log-in to your account
             </Header>
             <Form  autoComplete="off"  onSubmit={handleSubmit}>
