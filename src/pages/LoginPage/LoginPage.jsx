@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './LoginPage.css';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 import userService from '../../utils/userService';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, Link, withRouter } from 'react-router-dom';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 
 
@@ -38,12 +38,26 @@ export default function LoginPage(props){
         }
     }
 
+    const style = {
+      color: 'white'
+    };
+
+    const purple = {
+      color: '#751aff'
+    };
+
+    const purpleBtn = {
+      backgroundColor: '#751aff',
+      color: 'white'
+    }
+
+
     return (
         <>
-          <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+          <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle' backgroundColor='#6600ff' >
             <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as='h2' color='yellow' textAlign='center'>
-            <Image src='https://d20diaries.files.wordpress.com/2017/12/d20-icon-34414-jpeg.png' /> Log-in to your account
+            <Header as='h2' style={style} textAlign='center'>
+            <Image src='https://storage.gra.cloud.ovh.net/v1/AUTH_011f6e315d3744d498d93f6fa0d9b5ee/tabletop/media_attachments/files/000/772/199/original/24e7117847c40728.png' /> Log-in to your account
             </Header>
             <Form  autoComplete="off"  onSubmit={handleSubmit}>
                <Segment stacked>
@@ -65,7 +79,7 @@ export default function LoginPage(props){
                     required
                   />
                 <Button
-                  color='red'
+                  style={purpleBtn}
                   fluid size='large'
                   type="submit"
                   className="btn"
@@ -76,7 +90,7 @@ export default function LoginPage(props){
               </Segment>
             </Form>
             <Message>
-              New to us? <Link to='/signup'>Sign Up</Link>
+              New to us? <Link to='/signup' style={purple}>Sign Up</Link>
             </Message>
             {error ? <ErrorMessage error={error} /> : null}
             </Grid.Column>

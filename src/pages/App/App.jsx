@@ -5,6 +5,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService'
 import BoardgamesPage from '../BoardgamesPage/BoardgamesPage';
+import GamePage from '../GamePage/GamePage';
 
 
 function App() {
@@ -61,10 +62,11 @@ function App() {
             :
             <Redirect to='/login'/>
           }
-  
+          <Route exact path='/gamepage' component={GamePage}/>
       </Switch>
     </div>
   );
 }
+
 
 export default App;
