@@ -6,6 +6,7 @@ import BoardgameCard from '../BoardgameCard/BoardgameCard';
 
 export default function BoardgameList({ boardgames }){
 
+    // console.log('TEST IN BG-LIST', boardgames)
     
     return (
         <Card.Group itemsPerRow={4} stackable>
@@ -25,10 +26,9 @@ export default function BoardgameList({ boardgames }){
                         rating={boardgame.average_user_rating}
                         id={boardgame.id}
                     />
-
                 )
             })}
         </Card.Group>
     )
-
+    
 }

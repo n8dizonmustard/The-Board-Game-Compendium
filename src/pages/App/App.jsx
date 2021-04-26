@@ -40,7 +40,7 @@ function App() {
     makeApiCall();
   }, []);
 
-  console.log('this is the bgData state', bgData)
+  // console.log('this is the bgData state', bgData)
 
   return (
     <div className="App">
@@ -53,16 +53,18 @@ function App() {
           </Route>
           {userService.getUser() ? 
             <> 
-             <Switch>
+            <Switch>
                 <Route exact path="/">
                     <BoardgamesPage user={user} handleLogout={handleLogout} bgData={bgData} />
+                </Route>
+                <Route exact path='/:id' render={(routerProps) =>
+                  <GamePage user={user} handleLogout={handleLogout} bgData={bgData} routerProps={routerProps}/>}>
                 </Route>
             </Switch>
             </>
             :
             <Redirect to='/login'/>
           }
-          <Route exact path='/gamepage' component={GamePage}/>
       </Switch>
     </div>
   );
