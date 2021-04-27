@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Image, Button } from 'semantic-ui-react';
+import { Card, Image, Button, Icon, Segment } from 'semantic-ui-react';
 
-export default function BoardgameCard({ name, image, id }){
+export default function BoardgameCard({ name, image, id, handleAddFav }){
 
     return (
         <Card>
@@ -12,12 +12,11 @@ export default function BoardgameCard({ name, image, id }){
             <Image.Group >
                 <Image src={image} wrapped ui={false} height='125vh'/>
             </Image.Group>
-            <Button
-                fluid size='large'
-                type="submit"
-                className="btn"
-            >
-                Add to Favorites
+            <Button icon animated='vertical' onClick={() => handleAddFav(id)}>
+                <Button.Content hidden>Add to Favorites</Button.Content>
+                <Button.Content visible>
+                    <Icon name='star' />
+                </Button.Content>
             </Button>
         </Card>
     )

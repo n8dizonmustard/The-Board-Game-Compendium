@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Card } from 'semantic-ui-react';
 import BoardgameCard from '../BoardgameCard/BoardgameCard';
 
-export default function BoardgameList({ bgData }){
+export default function BoardgameList({ bgData, handleAddFav }){
 
     const [boardgames, setBoardgames] = useState(bgData)
 
@@ -24,6 +24,7 @@ export default function BoardgameList({ bgData }){
                         rating={boardgame.average_user_rating}
                         id={boardgame.id}
                         key={`${boardgame.name}`}
+                        handleAddFav={handleAddFav}
                     />
                 )
             })}

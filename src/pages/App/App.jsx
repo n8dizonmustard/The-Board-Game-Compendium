@@ -41,7 +41,14 @@ function App() {
     makeApiCall();
   }, []);
 
-  // console.log('this is the bgData state', bgData)
+  const handleAddFav = (id) => {
+    if(user.favorites.includes(id)){
+      console.log('ALREADY IN FAVORITES')
+    } else {
+      user.favorites.push(id)
+      console.log(user.favorites, 'this is the array')
+    }
+  } 
 
   return (
     <div className="App">
@@ -62,7 +69,7 @@ function App() {
                   <GamePage user={user} handleLogout={handleLogout} bgData={bgData} routerProps={routerProps}/>}>
                 </Route>
                 <Route exact path="/boardgames">
-                    <BoardgamesPage user={user} handleLogout={handleLogout} bgData={bgData} />
+                    <BoardgamesPage user={user} handleLogout={handleLogout} bgData={bgData} handleAddFav={handleAddFav}/>
                 </Route>
                 <Route exact path='/:username'>
                   <ProfilePage user={user} bgData={bgData} />
