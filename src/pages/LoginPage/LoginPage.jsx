@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import './LoginPage.css';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 import userService from '../../utils/userService';
-import { useHistory, Link, withRouter } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 
 
 export default function LoginPage(props){
     const [invalidForm, setValidForm] = useState(false);
-    const [error, setError ]          = useState('')
-    const [state, setState]       = useState({
+    const [error, setError ] = useState('')
+    const [state, setState] = useState({
         email: '',
         password: '',
     })
@@ -30,7 +30,7 @@ export default function LoginPage(props){
             await userService.login(state);
             // Route to wherever you want!
             props.handleSignUpOrLogin()
-            history.push('/')
+            history.push('/boardgames')
             
         } catch (err) {
             // Invalid user data (probably duplicate email)
@@ -51,6 +51,7 @@ export default function LoginPage(props){
       color: 'white'
     }
 
+    // user ? console.log('logged in!', user) : console.log('not logged in')
 
     return (
         <>

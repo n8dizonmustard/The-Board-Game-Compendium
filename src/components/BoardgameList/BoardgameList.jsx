@@ -1,13 +1,11 @@
-import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import React, {useState} from 'react';
 import { Card } from 'semantic-ui-react';
-import GamePage from '../../pages/GamePage/GamePage';
 import BoardgameCard from '../BoardgameCard/BoardgameCard';
 
-export default function BoardgameList({ boardgames }){
+export default function BoardgameList({ bgData }){
 
-    // console.log('TEST IN BG-LIST', boardgames)
-    
+    const [boardgames, setBoardgames] = useState(bgData)
+
     return (
         <Card.Group itemsPerRow={4} stackable>
             {boardgames.map(boardgame => {
@@ -31,5 +29,4 @@ export default function BoardgameList({ boardgames }){
             })}
         </Card.Group>
     )
-    
 }

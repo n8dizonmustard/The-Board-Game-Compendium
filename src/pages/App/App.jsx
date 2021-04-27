@@ -52,17 +52,20 @@ function App() {
           <Route exact path="/signup">
              <SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>
           </Route>
+          <Route exact path="/">
+             <Redirect to='/login'/>
+          </Route>
           {userService.getUser() ? 
             <> 
             <Switch>
-                <Route exact path="/">
-                    <BoardgamesPage user={user} handleLogout={handleLogout} bgData={bgData} />
-                </Route>
-                <Route exact path='/:id' render={(routerProps) =>
+                <Route exact path='/boardgames/:id' render={(routerProps) =>
                   <GamePage user={user} handleLogout={handleLogout} bgData={bgData} routerProps={routerProps}/>}>
                 </Route>
+                <Route exact path="/boardgames">
+                    <BoardgamesPage user={user} handleLogout={handleLogout} bgData={bgData} />
+                </Route>
                 <Route exact path='/:username'>
-                  <ProfilePage />
+                  <ProfilePage user={user} bgData={bgData} />
                 </Route>
             </Switch>
             </>

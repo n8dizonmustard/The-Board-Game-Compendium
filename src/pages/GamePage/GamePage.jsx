@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PageHeader from '../../components/Header/Header';
 import { Image } from 'semantic-ui-react';
 
@@ -8,7 +8,7 @@ export default function GamePage({ user, handleLogout, routerProps, bgData }){
     let gameID = routerProps.match.params.id
     let matchingGame = bgData.filter(game => game.id === gameID)
 
-    console.log('TEST', matchingGame)
+    // console.log('TEST', matchingGame)
 
     let name = matchingGame[0].name
     let image = matchingGame[0].image_url
@@ -26,7 +26,7 @@ export default function GamePage({ user, handleLogout, routerProps, bgData }){
         <>
         <PageHeader user={user} handleLogout={handleLogout} />
         <h1>Boardgame: {name}</h1>
-        <Image src={image} size='medium'/>
+        <Image src={image} size='medium' floated='left'/>
         <p>{description}</p>
         <p>Players: {
             minPlayers === maxPlayers ? 'Unknown' : `${minPlayers}-${maxPlayers}`
