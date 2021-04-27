@@ -25,6 +25,7 @@ export default function BoardgameList({ boardgames }){
                         release={boardgame.year_published}
                         rating={boardgame.average_user_rating}
                         id={boardgame.id}
+                        key={`${boardgame.name}`}
                     />
                 )
             })}

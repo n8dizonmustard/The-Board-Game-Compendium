@@ -7,6 +7,9 @@ export default function GamePage({ user, handleLogout, routerProps, bgData }){
 
     let gameID = routerProps.match.params.id
     let matchingGame = bgData.filter(game => game.id === gameID)
+
+    console.log('TEST', matchingGame)
+
     let name = matchingGame[0].name
     let image = matchingGame[0].image_url
     let description = matchingGame[0].description_preview
@@ -18,8 +21,6 @@ export default function GamePage({ user, handleLogout, routerProps, bgData }){
     let publishers = matchingGame[0].primary_publisher.name
     let release = matchingGame[0].year_published
     let rating = matchingGame[0].average_user_rating
-
-    console.log('MIN AGE', minAge)
 
     return (
         <>

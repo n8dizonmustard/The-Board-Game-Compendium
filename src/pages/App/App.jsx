@@ -6,6 +6,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService'
 import BoardgamesPage from '../BoardgamesPage/BoardgamesPage';
 import GamePage from '../GamePage/GamePage';
+import ProfilePage from '../ProfilePage/ProfilePage';
 
 
 function App() {
@@ -59,6 +60,9 @@ function App() {
                 </Route>
                 <Route exact path='/:id' render={(routerProps) =>
                   <GamePage user={user} handleLogout={handleLogout} bgData={bgData} routerProps={routerProps}/>}>
+                </Route>
+                <Route exact path='/:username'>
+                  <ProfilePage />
                 </Route>
             </Switch>
             </>
