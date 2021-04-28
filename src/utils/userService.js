@@ -46,11 +46,13 @@ function login(creds) {
 }
 
 function addFavDatabase(gameId){
+  console.log('gameId', gameIdString)
   return fetch(BASE_URL + 'favorite', {
     method: 'POST',
-    body: {gameId},
+    body: JSON.stringify({gameId}),
     headers: {
-      'Authorization': 'Bearer ' + tokenService.getToken()
+      'Authorization': 'Bearer ' + tokenService.getToken(),
+      'Content-Type': 'application/json'
     }
   }).then(res => res.json())
 }

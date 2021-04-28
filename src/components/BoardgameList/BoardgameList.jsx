@@ -8,6 +8,7 @@ export default function BoardgameList({ bgData, handleAddFav }){
     
 
     return (
+
         <Card.Group itemsPerRow={4} stackable>
             {boardgames.map(boardgame => {
                 return (

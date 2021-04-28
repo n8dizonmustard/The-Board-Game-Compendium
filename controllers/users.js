@@ -76,8 +76,11 @@ function createJWT(user) {
 
 //////////////////////////////////////////////////////////////////////////////////
 
+
+
 function addFavorite(req, res){
   console.log('addFavorite controller FIRING')
-  console.log('REQ.BODY:', req.body, 'REQ.FILE:', req.file, 'REQ.USER', req.user)
-  return 'addFavorite controller FIRING'
+  // console.log(req.user.favorites, 'THIS IS USER'S FAVs')
+  console.log('THIS IS REQ.BODY', req.body)
+  console.log(req.body, req.user)
 }

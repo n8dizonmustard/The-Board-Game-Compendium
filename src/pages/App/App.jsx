@@ -29,7 +29,7 @@ function App() {
   const [bgData, setBgData] = useState({})
 
   const makeApiCall = () => {
-    let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?order_by=popularity&ascending=false&pretty=true&client_id=z3qRKx4kGS';
+    let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?name=Catan&pretty=true&client_id=z3qRKx4kGS';
     fetch(atlasApiUrl)
       .then((res) => res.json())
       .then((data) => {
@@ -45,10 +45,10 @@ function App() {
 // FUNCTIONS FOR ADDING FAVORITE GAME TO PROFILE/DATABASE
   const [favorites, setFavorites] = useState([])
 
-  async function handleAddFav(id){
-      console.log(id, 'THIS IS ID')
+  async function handleAddFav(gameId){
+      console.log(gameId, 'THIS IS GAME ID')
       try{
-          const data = await UserService.addFavDatabase(id)
+          const data = await UserService.addFavDatabase(gameId)
           console.log('Data from handleAddFav:', data)
 
       } catch(err){
