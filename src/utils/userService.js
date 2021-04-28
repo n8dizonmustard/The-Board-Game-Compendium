@@ -46,7 +46,7 @@ function login(creds) {
 }
 
 function addFavDatabase(gameId){
-  console.log('gameId', gameIdString)
+  console.log('gameId', gameId)
   return fetch(BASE_URL + 'favorite', {
     method: 'POST',
     body: JSON.stringify({gameId}),

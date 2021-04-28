@@ -26,21 +26,23 @@ function App() {
 
 // API DATA
   // console.log(`${i}: ${data.games[i].name}`) // This is for calling bg name w/in data
-  const [bgData, setBgData] = useState({})
+  // const [atlasApiUrl, setApiUrl] = useState('https://api.boardgameatlas.com/api/search?name=Catan&pretty=true&client_id=z3qRKx4kGS')
 
-  const makeApiCall = () => {
-    let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?name=Catan&pretty=true&client_id=z3qRKx4kGS';
-    fetch(atlasApiUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setBgData(data.games)
-      });
-  };
+  const [bgData, setBgData] = useState()
 
+  let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?name=Catan&pretty=true&client_id=z3qRKx4kGS'
+  
   useEffect(() => {
-    makeApiCall();
-  }, []);
+      fetch(atlasApiUrl)
+        .then((res) => res.json())
+        .then((data) => {
+          setBgData(data.games)
+        })
+  }, [])
+  
+  // console.log(bgData, 'BG DATA')
 
+/////////////////////////////////
 
 // FUNCTIONS FOR ADDING FAVORITE GAME TO PROFILE/DATABASE
   const [favorites, setFavorites] = useState([])
@@ -84,10 +86,15 @@ function App() {
                   <GamePage user={user} handleLogout={handleLogout} bgData={bgData} routerProps={routerProps}/>}>
                 </Route>
                 <Route exact path="/boardgames">
-                    <BoardgamesPage user={user} handleLogout={handleLogout} bgData={bgData} handleAddFav={handleAddFav}/>
+                    <BoardgamesPage
+                      user={user}
+                      handleLogout={handleLogout}
+                      atlasApiUrl={atlasApiUrl}
+                      bgData={bgData}
+                      handleAddFav={handleAddFav}/>
                 </Route>
                 <Route exact path='/:username'>
-                  <ProfilePage user={user} bgData={bgData} />
+                  <ProfilePage user={user} atlasApiUrl={atlasApiUrl} />
                 </Route>
             </Switch>
             </>
