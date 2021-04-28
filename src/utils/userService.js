@@ -46,7 +46,7 @@ function login(creds) {
 }
 
 function addFavDatabase(gameId){
-  return fetch(BASE_URL, {
+  return fetch(BASE_URL + 'favorite', {
     method: 'POST',
     body: {gameId},
     headers: {
