@@ -30,7 +30,9 @@ function App() {
 
   const [bgData, setBgData] = useState()
 
-  let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?name=Catan&pretty=true&client_id=z3qRKx4kGS'
+  // let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?name=Catan&pretty=true&client_id=z3qRKx4kGS' // Catan example by API
+
+  let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?categories?name=Adventure&limit=100&client_id=z3qRKx4kGS' // by adventure category
   
   useEffect(() => {
       fetch(atlasApiUrl)
