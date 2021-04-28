@@ -2,10 +2,11 @@ import React from 'react';
 import { Image } from 'semantic-ui-react';
 import PageHeader from '../../components/Header/Header';
 import BoardgameList from '../../components/BoardgameList/BoardgameList';
+import * as favoritesApi from '../../utils/userService';
 
 export default function ProfilePage({ user, bgData }){
 
-    console.log('this is user info', user)
+    // console.log('this is user info', user)
 
     const style = {
         color: 'white'

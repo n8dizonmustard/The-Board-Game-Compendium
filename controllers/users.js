@@ -8,7 +8,8 @@ const s3 = new S3(); // initialize the construcotr
 
 module.exports = {
   signup,
-  login
+  login,
+  addFavorite
 };
 
 function signup(req, res) {
@@ -71,4 +72,12 @@ function createJWT(user) {
     SECRET,
     {expiresIn: '24h'}
   );
+}
+
+//////////////////////////////////////////////////////////////////////////////////
+
+async function addFavorite(req, res){
+  console.log('addFavorite controller FIRING')
+  console.log('REQ.BODY:', req.body, 'REQ.FILE:', req.file, 'REQ.USER', req.user)
+  return 'addFavorite controller FIRING'
 }

@@ -5,6 +5,7 @@ import BoardgameCard from '../BoardgameCard/BoardgameCard';
 export default function BoardgameList({ bgData, handleAddFav }){
 
     const [boardgames, setBoardgames] = useState(bgData)
+    
 
     return (
         <Card.Group itemsPerRow={4} stackable>

@@ -45,10 +45,21 @@ function login(creds) {
   .then(({token}) => tokenService.setToken(token));
 }
 
+function addFavDatabase(gameId){
+  return fetch(BASE_URL, {
+    method: 'POST',
+    body: {gameId},
+    headers: {
+      'Authorization': 'Bearer ' + tokenService.getToken()
+    }
+  }).then(res => res.json())
+}
+
 
 export default {
   signup, 
   logout,
   login,
-  getUser
+  getUser,
+  addFavDatabase,
 };

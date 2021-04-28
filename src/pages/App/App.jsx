@@ -7,7 +7,7 @@ import userService from '../../utils/userService'
 import BoardgamesPage from '../BoardgamesPage/BoardgamesPage';
 import GamePage from '../GamePage/GamePage';
 import ProfilePage from '../ProfilePage/ProfilePage';
-
+import UserService from '../../utils/userService';
 
 function App() {
 // USER, LOGIN, SIGNUP
@@ -41,14 +41,29 @@ function App() {
     makeApiCall();
   }, []);
 
-  const handleAddFav = (id) => {
-    if(user.favorites.includes(id)){
-      console.log('ALREADY IN FAVORITES')
-    } else {
-      user.favorites.push(id)
-      console.log(user.favorites, 'this is the array')
-    }
-  } 
+
+// FUNCTIONS FOR ADDING FAVORITE GAME TO PROFILE/DATABASE
+  const [favorites, setFavorites] = useState([])
+
+  async function handleAddFav(id){
+      console.log(id, 'THIS IS ID')
+      try{
+          const data = await UserService.addFavDatabase(id)
+          console.log('Data from handleAddFav:', data)
+
+      } catch(err){
+          console.log(err, 'ERR from handleAddFav')
+      }
+  }
+
+  // const handleAddFav = (id) => {
+  //   if(user.favorites.includes(id)){
+  //     console.log('ALREADY IN FAVORITES')
+  //   } else {
+  //     user.favorites.push(id)
+  //     console.log(user.favorites, 'this is the array')
+  //   }
+  // } 
 
   return (
     <div className="App">
