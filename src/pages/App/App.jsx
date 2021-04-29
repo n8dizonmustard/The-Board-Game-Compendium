@@ -32,7 +32,7 @@ function App() {
 
   // let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?name=Catan&pretty=true&client_id=z3qRKx4kGS' // Catan example by API
 
-  let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?categories?name=Adventure&limit=100&client_id=z3qRKx4kGS' // by adventure category
+  let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?categories?name=Adventure&limit=50&client_id=z3qRKx4kGS' // by adventure category
   
   useEffect(() => {
       fetch(atlasApiUrl)
@@ -53,7 +53,7 @@ function App() {
       console.log(gameId, 'THIS IS GAME ID')
       try{
           const data = await UserService.addFavDatabase(gameId)
-          console.log('Data from handleAddFav:', data)
+          // console.log('Data from handleAddFav:', data)
 
       } catch(err){
           console.log(err, 'ERR from handleAddFav')

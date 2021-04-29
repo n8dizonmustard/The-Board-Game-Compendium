@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from 'semantic-ui-react';
 import PageHeader from '../../components/Header/Header';
-import BoardgameList from '../../components/BoardgameList/BoardgameList';
+// import BoardgameList from '../../components/BoardgameList/BoardgameList';
 
 export default function ProfilePage({ user, bgData }){
 

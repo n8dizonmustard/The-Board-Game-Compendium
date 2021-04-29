@@ -20,6 +20,7 @@ export default function PageHeader({user, handleLogout}){
                 <Link to="/boardgames"><Icon name="home" style={headerFont}></Icon></Link>
                 <Link to='/login' onClick={handleLogout} style={headerFont}>Logout</Link>
             </Header>
+            {/* <Header as='h1'>The Boardgame Compendium</Header> */}
             <Header as='h2' floated='left'>
                 <Link to={`/${user.username}`}><Image src={user.photoUrl ? user.photoUrl : "https://react.semantic-ui.com/images/wireframe/square-image.png"} avatar></Image>{user.username}</Link>          
             </Header>

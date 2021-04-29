@@ -77,10 +77,32 @@ function createJWT(user) {
 //////////////////////////////////////////////////////////////////////////////////
 
 
-
-function addFavorite(req, res){
+async function addFavorite(req, res){
   console.log('addFavorite controller FIRING')
-  // console.log(req.user.favorites, 'THIS IS USER'S FAVs')
-  console.log('THIS IS REQ.BODY', req.body)
-  console.log(req.body, req.user)
+  // console.log('THE USER:', req.user)
+  // let bgId = req.body.gameId
+  // let usersFavs = req.user.favorites
+
+  const user = await User.findById(req.user._id)
+  console.log('USER FAVS', user.favorites)
+  
+  try {
+    
+    if(user.favorites.includes(req.body.gameId)){
+      console.log('GAME ALREADY EXISTS IN USERS FAVS')
+    } else {
+      user.favorites.push(req.body.gameId)
+      console.log(user.favorites, 'USERS FAVS IN CTRL1')
+      await user.save()
+      console.log('SAVED!')
+      console.log(user.favorites, 'USERS FAVS IN CTRL2')
+      res.status(201).json({data: `${req.body.gameId} added to favorites!`})
+    }
+    
+  } catch(err){
+    res.json({data: err})
+    console.log('ERROR:', err)
+  }
+  
+  // console.log(usersFavs, 'USERS FAVS IN CTRL', usersFavs.length, '<-- this is how many are in favs')
 }

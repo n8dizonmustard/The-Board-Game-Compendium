@@ -1,4 +1,5 @@
 import React from 'react';
+import './GamePage.css';
 import PageHeader from '../../components/Header/Header';
 import { Image } from 'semantic-ui-react';
 
@@ -27,24 +28,24 @@ export default function GamePage({ user, handleLogout, routerProps, bgData }){
         <PageHeader user={user} handleLogout={handleLogout} />
         <h1>Boardgame: {name}</h1>
         <Image src={image} size='medium' floated='left'/>
-        <p>{description}</p>
-        <p>Players: {
+        <p className='text'>Players: {
             minPlayers === maxPlayers ? 'Unknown' : `${minPlayers}-${maxPlayers}`
         }</p>
-        <p>Play Time: {
+        <p className='text'>Play Time: {
             minPlaytime === null ? 'Unknown' :
             ( minPlaytime === maxPlaytime ? `${minPlaytime} minutes` : `${minPlaytime}-${maxPlaytime} minutes`)
         }</p>
-        <p>Minimum Age: {
+        <p className='text'>Minimum Age: {
             minAge === null ? 'Unknown' : minAge
         }</p>
-        <p>Published by {publishers}</p>
-        <p>Release Year: {
+        <p className='text'>Published by {publishers}</p>
+        <p className='text'>Release Year: {
             release === null ? 'Unknown' : `${release}`
         }</p>
-        <p>Average Rating: {
+        <p className='text'>Average Rating: {
             Math.ceil(rating) === 0 ? 'No Ratings' : `${Math.ceil(rating)}/5`
         }</p>
+        <p className='text'>{description}</p>
         </>
     )
 }
