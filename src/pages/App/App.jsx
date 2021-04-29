@@ -49,25 +49,16 @@ function App() {
 // FUNCTIONS FOR ADDING FAVORITE GAME TO PROFILE/DATABASE
   const [favorites, setFavorites] = useState([])
 
-  async function handleAddFav(gameId){
+  async function handleFavorite(gameId){
       console.log(gameId, 'THIS IS GAME ID')
       try{
-          const data = await UserService.addFavDatabase(gameId)
-          // console.log('Data from handleAddFav:', data)
+          const data = await UserService.handleFavDatabase(gameId)
+          // console.log('Data from handleFavorite:', data)
 
       } catch(err){
-          console.log(err, 'ERR from handleAddFav')
+          console.log(err, 'ERR from handleFavorite')
       }
   }
-
-  // const handleAddFav = (id) => {
-  //   if(user.favorites.includes(id)){
-  //     console.log('ALREADY IN FAVORITES')
-  //   } else {
-  //     user.favorites.push(id)
-  //     console.log(user.favorites, 'this is the array')
-  //   }
-  // } 
 
   return (
     <div className="App">
@@ -93,7 +84,7 @@ function App() {
                       handleLogout={handleLogout}
                       atlasApiUrl={atlasApiUrl}
                       bgData={bgData}
-                      handleAddFav={handleAddFav}/>
+                      handleFavorite={handleFavorite}/>
                 </Route>
                 <Route exact path='/:username'>
                   <ProfilePage user={user} atlasApiUrl={atlasApiUrl} />

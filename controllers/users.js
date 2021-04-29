@@ -9,7 +9,7 @@ const s3 = new S3(); // initialize the construcotr
 module.exports = {
   signup,
   login,
-  addFavorite
+  addOrRemoveFavorite
 };
 
 function signup(req, res) {
@@ -76,9 +76,9 @@ function createJWT(user) {
 
 //////////////////////////////////////////////////////////////////////////////////
 
-
-async function addFavorite(req, res){
-  console.log('addFavorite controller FIRING')
+// ADD FAVORITE FUNCTION
+async function addOrRemoveFavorite(req, res){
+  console.log('addOrRemoveFavorite controller FIRING')
   // console.log('THE USER:', req.user)
   // let bgId = req.body.gameId
   // let usersFavs = req.user.favorites
@@ -102,7 +102,5 @@ async function addFavorite(req, res){
   } catch(err){
     res.json({data: err})
     console.log('ERROR:', err)
-  }
-  
-  // console.log(usersFavs, 'USERS FAVS IN CTRL', usersFavs.length, '<-- this is how many are in favs')
+  }  
 }

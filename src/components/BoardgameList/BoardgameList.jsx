@@ -4,7 +4,7 @@ import { Card, Image } from 'semantic-ui-react';
 import React, {useState, useEffect} from 'react';
 import BoardgameCard from '../BoardgameCard/BoardgameCard';
 
-export default function BoardgameList({ atlasApiUrl, bgData, handleAddFav }){
+export default function BoardgameList({ atlasApiUrl, bgData, handleFavorite }){
 
     const [boardgames, setBoardgames] = useState([])
 
@@ -25,7 +25,7 @@ export default function BoardgameList({ atlasApiUrl, bgData, handleAddFav }){
                     image={boardgame.image_url}
                     id={boardgame.id}
                     key={`${boardgame.name}`}
-                    handleAddFav={handleAddFav}
+                    handleFavorite={handleFavorite}
                 />
         )
     })

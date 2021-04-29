@@ -3,7 +3,7 @@ import './BoardgameCard.css';
 import { Link } from 'react-router-dom';
 import { Card, Image, Button, Icon } from 'semantic-ui-react';
 
-export default function BoardgameCard({ name, image, id, handleAddFav }){
+export default function BoardgameCard({ name, image, id, handleFavorite }){
 
     return (
         <Card>
@@ -14,7 +14,7 @@ export default function BoardgameCard({ name, image, id, handleAddFav }){
                     </Image.Group>
                 </Link>
             </Card.Header>
-            <Button className='favorite' icon animated='vertical' onClick={() => handleAddFav(id)}>
+            <Button className='favorite' icon animated='vertical' onClick={() => handleFavorite(id)}>
                 <Button.Content hidden>Add to Favorites</Button.Content>
                 <Button.Content visible>
                     <Icon name='star' />
