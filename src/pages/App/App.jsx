@@ -50,13 +50,12 @@ function App() {
 
 // FUNCTIONS FOR ADDING FAVORITE GAME TO PROFILE/DATABASE
   const [userFavorites, setUserFavorites] = useState([])
-  console.log('STATE: USER FAVS', userFavorites)
 
   async function handleFavorite(gameId){
       // console.log(gameId, 'THIS IS GAME ID')
       try{
           const data = await UserService.handleFavDatabase(gameId)
-          console.log('Data from handleFavorite:', data)
+          // console.log('Data from handleFavorite:', data)
           setUserFavorites(data)
 
 

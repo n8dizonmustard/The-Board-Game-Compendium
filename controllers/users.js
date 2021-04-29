@@ -91,18 +91,16 @@ async function addOrRemoveFavorite(req, res){
     if(user.favorites.includes(req.body.gameId)){
       newFavs = user.favorites.filter(gId => gId !== req.body.gameId)
       user.favorites = newFavs
-      // console.log(user.favorites, 'REMOVE: USERS FAVS IN CTRL1')
       await user.save()
-      console.log('SAVED!')
-      console.log(user.favorites, 'NEW USERS FAVS IN CTRL2 (item removed)')
+      // console.log('SAVED!')
+      console.log(user.favorites, 'USERS CURRENT FAVS')
       res.status(201).json(newFavs)
 
     } else {
-      user.favorites.push(req.body.gameId)
-      // console.log(user.favorites, 'ADD: USERS FAVS IN CTRL1')
+      newFavs = user.favorites.push(req.body.gameId)
       await user.save()
-      console.log('SAVED!')
-      console.log(user.favorites, 'NEW USERS FAVS IN CTRL2 (item added)')
+      // console.log('SAVED!')
+      console.log(user.favorites, 'USERS CURRENT FAVS')
       res.status(201).json(newFavs)
     }
     
