@@ -76,7 +76,7 @@ function createJWT(user) {
 
 //////////////////////////////////////////////////////////////////////////////////
 
-// ADD FAVORITE FUNCTION
+// HANDLE FAVORITE FUNCTION
 async function addOrRemoveFavorite(req, res){
   console.log('addOrRemoveFavorite controller FIRING')
   // console.log('THE USER:', req.user)
@@ -87,16 +87,23 @@ async function addOrRemoveFavorite(req, res){
   console.log('USER FAVS', user.favorites)
   
   try {
-    
+    let newFavs = [];
     if(user.favorites.includes(req.body.gameId)){
-      console.log('GAME ALREADY EXISTS IN USERS FAVS')
-    } else {
-      user.favorites.push(req.body.gameId)
-      console.log(user.favorites, 'USERS FAVS IN CTRL1')
+      newFavs = user.favorites.filter(gId => gId !== req.body.gameId)
+      user.favorites = newFavs
+      // console.log(user.favorites, 'REMOVE: USERS FAVS IN CTRL1')
       await user.save()
       console.log('SAVED!')
-      console.log(user.favorites, 'USERS FAVS IN CTRL2')
-      res.status(201).json({data: `${req.body.gameId} added to favorites!`})
+      console.log(user.favorites, 'NEW USERS FAVS IN CTRL2 (item removed)')
+      res.status(201).json(newFavs)
+
+    } else {
+      user.favorites.push(req.body.gameId)
+      // console.log(user.favorites, 'ADD: USERS FAVS IN CTRL1')
+      await user.save()
+      console.log('SAVED!')
+      console.log(user.favorites, 'NEW USERS FAVS IN CTRL2 (item added)')
+      res.status(201).json(newFavs)
     }
     
   } catch(err){

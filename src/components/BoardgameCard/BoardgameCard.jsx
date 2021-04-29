@@ -2,8 +2,11 @@ import React from 'react';
 import './BoardgameCard.css';
 import { Link } from 'react-router-dom';
 import { Card, Image, Button, Icon } from 'semantic-ui-react';
+import * as usersApi from '../../utils/userService';
 
-export default function BoardgameCard({ name, image, id, handleFavorite }){
+export default function BoardgameCard({ name, image, id, handleFavorite, user }){
+
+    // async function 
 
     return (
         <Card>

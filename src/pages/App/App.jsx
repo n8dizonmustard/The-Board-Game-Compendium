@@ -24,6 +24,8 @@ function App() {
     setUser({user: null})
   }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////// 
+
 // API DATA
   // console.log(`${i}: ${data.games[i].name}`) // This is for calling bg name w/in data
   // const [atlasApiUrl, setApiUrl] = useState('https://api.boardgameatlas.com/api/search?name=Catan&pretty=true&client_id=z3qRKx4kGS')
@@ -44,21 +46,26 @@ function App() {
   
   // console.log(bgData, 'BG DATA')
 
-/////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 // FUNCTIONS FOR ADDING FAVORITE GAME TO PROFILE/DATABASE
-  const [favorites, setFavorites] = useState([])
+  const [userFavorites, setUserFavorites] = useState([])
+  console.log('STATE: USER FAVS', userFavorites)
 
   async function handleFavorite(gameId){
-      console.log(gameId, 'THIS IS GAME ID')
+      // console.log(gameId, 'THIS IS GAME ID')
       try{
           const data = await UserService.handleFavDatabase(gameId)
-          // console.log('Data from handleFavorite:', data)
+          console.log('Data from handleFavorite:', data)
+          setUserFavorites(data)
+
 
       } catch(err){
           console.log(err, 'ERR from handleFavorite')
       }
   }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
   return (
     <div className="App">

@@ -45,8 +45,8 @@ function login(creds) {
   .then(({token}) => tokenService.setToken(token));
 }
 
-function addFavDatabase(gameId){
-  console.log('gameId', gameId)
+function handleFavDatabase(gameId){
+  // console.log('gameId', gameId)
   return fetch(BASE_URL + 'favorite', {
     method: 'POST',
     body: JSON.stringify({gameId}),
@@ -55,6 +55,7 @@ function addFavDatabase(gameId){
       'Content-Type': 'application/json'
     }
   }).then(res => res.json())
+
 }
 
 
@@ -63,5 +64,5 @@ export default {
   logout,
   login,
   getUser,
-  addFavDatabase,
+  handleFavDatabase,
 };
