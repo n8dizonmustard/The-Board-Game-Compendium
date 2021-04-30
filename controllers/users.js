@@ -91,9 +91,11 @@ async function addOrRemoveFavorite(req, res){
       user.favorites.push(req.body.boardgame) // add new game to user favs
       console.log(`FAVS EMPTY. ADDING ${req.body.boardgame.handle} TO FAVS`)
       await user.save() // save the user
-      for(let game of user.favorites) {
-          console.log(game.handle, 'IS IN FAVS. END CODE 1A')
-      }
+
+      // CHECK FAVS
+      // for(let game of user.favorites) {
+      //     console.log(game.handle, 'IS IN FAVS. END CODE 1A')
+      // }
 
     // CODE 1B
     } else { // if user favs is not empty
@@ -105,13 +107,14 @@ async function addOrRemoveFavorite(req, res){
           console.log(`REMOVING ${req.body.boardgame.handle} FROM FAVS`)
           await user.save() // save the user
 
-          if(user.favorites < 1){
-            console.log('USER FAVS EMPTY! END CODE 1Bi-A')
-          } else {
-            for(let game of user.favorites) {
-              console.log(game.handle, 'IS IN FAVS. END CODE 1Bi-B')
-            }
-          }
+          // CHECK FAVS
+          // if(user.favorites < 1){
+          //   console.log('USER FAVS EMPTY! END CODE 1Bi-A')
+          // } else {
+          //   for(let game of user.favorites) {
+          //     console.log(game.handle, 'IS IN FAVS. END CODE 1Bi-B')
+          //   }
+          // }
           
 
         // CODE 1Bii  
@@ -119,14 +122,14 @@ async function addOrRemoveFavorite(req, res){
           user.favorites.push(req.body.boardgame) // add new game to favs
           console.log(`ADDING ${req.body.boardgame.handle} TO FAVS`)
           await user.save() // save user
-
-          if(user.favorites < 1){
-            console.log('USER FAVS EMPTY! END CODE 1Bii-A')
-          } else {
-            for(let game of user.favorites) {
-              console.log(game.handle, 'IS IN FAVS. END CODE 1Bii-B')
-            }
-          }
+          // CHECK FAVS!!!
+          // if(user.favorites < 1){
+          //   console.log('USER FAVS EMPTY! END CODE 1Bii-A')
+          // } else {
+          //   for(let game of user.favorites) {
+          //     console.log(game.handle, 'IS IN FAVS. END CODE 1Bii-B')
+          //   }
+          // }
         }
         return
       }
