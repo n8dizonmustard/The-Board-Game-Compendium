@@ -52,11 +52,11 @@ function App() {
   const [userFavorites, setUserFavorites] = useState([])
   // console.log(typeof(userFavorites), '<-USER FAVS TEST IN APP')
 
-  async function handleFavorite(gameId){
+  async function handleFavorite(boardgame){
       // console.log('App - gameId:', gameId)
 
       try{
-          const data = await UserService.handleFavDatabase(gameId)
+          const data = await UserService.handleFavDatabase(boardgame)
           // console.log('APP TEST:', data)
           setUserFavorites(data)
       } catch(err){
