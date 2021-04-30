@@ -80,26 +80,58 @@ function createJWT(user) {
 async function addOrRemoveFavorite(req, res){
 
   const user = await User.findById(req.user._id)
-  // console.log('USER FAVS', user.favorites)
+ 
+  user.favorites.map(x => console.log(x.handle, 'TITLES IN FAVS'))
   
+  // console.log(req.body.boardgame.id, 'REQ.BODY')
+
   try {
-    if(user.favorites.includes(req.body.gameId)){
-      user.favorites.remove(req.body.gameId)
-      await user.save()
-      // console.log('SAVED!')
-      console.log(user.favorites, 'USERS CURRENT FAVS')
-      res.status(201).json(user.favorites)
-      // console.log('TYPE TEST IN USER CTRL:', typeof(newFavs))
+    // CODE 1A
+    if (user.favorites.length < 1){ // if user favs is empty
+      user.favorites.push(req.body.boardgame) // add new game to user favs
+      console.log(`FAVS EMPTY. ADDING ${req.body.boardgame.handle} TO FAVS`)
+      await user.save() // save the user
+      for(let game of user.favorites) {
+          console.log(game.handle, 'IS IN FAVS. END CODE 1A')
+      }
 
-    } else {
-      user.favorites.push(req.body.gameId)
-      await user.save()
-      // console.log('SAVED!')
-      console.log(user.favorites, 'USERS CURRENT FAVS')
-      res.status(201).json(user.favorites)
-      // console.log('TYPE TEST IN USER CTRL:', typeof(newFavs))
+    // CODE 1B
+    } else { // if user favs is not empty
+      for (let game of user.favorites){ // loop through each game in favs
 
+        // CODE 1Bi
+        if(game.handle === req.body.boardgame.handle || game === null){ // if game = new game 
+          user.favorites.remove(game) // remove game from user favs
+          console.log(`REMOVING ${req.body.boardgame.handle} FROM FAVS`)
+          await user.save() // save the user
+
+          if(user.favorites < 1){
+            console.log('USER FAVS EMPTY! END CODE 1Bi-A')
+          } else {
+            for(let game of user.favorites) {
+              console.log(game.handle, 'IS IN FAVS. END CODE 1Bi-B')
+            }
+          }
+          
+
+        // CODE 1Bii  
+        } else { // if game != new game
+          user.favorites.push(req.body.boardgame) // add new game to favs
+          console.log(`ADDING ${req.body.boardgame.handle} TO FAVS`)
+          await user.save() // save user
+
+          if(user.favorites < 1){
+            console.log('USER FAVS EMPTY! END CODE 1Bii-A')
+          } else {
+            for(let game of user.favorites) {
+              console.log(game.handle, 'IS IN FAVS. END CODE 1Bii-B')
+            }
+          }
+        }
+        return
+      }
     }
+    
     
   } catch(err){
     res.json({data: err})

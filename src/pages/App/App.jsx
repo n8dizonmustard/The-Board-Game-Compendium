@@ -53,7 +53,7 @@ function App() {
   // console.log(typeof(userFavorites), '<-USER FAVS TEST IN APP')
 
   async function handleFavorite(boardgame){
-      // console.log('App - gameId:', gameId)
+      console.log('BOARD GAME:', boardgame.handle)
 
       try{
           const data = await UserService.handleFavDatabase(boardgame)

@@ -45,11 +45,11 @@ function login(creds) {
   .then(({token}) => tokenService.setToken(token));
 }
 
-function handleFavDatabase(gameId){
+function handleFavDatabase(boardgame){
   // console.log('gameId', gameId)
   return fetch(BASE_URL + 'favorite', {
     method: 'POST',
-    body: JSON.stringify({gameId}),
+    body: JSON.stringify({boardgame}),
     headers: {
       'Authorization': 'Bearer ' + tokenService.getToken(),
       'Content-Type': 'application/json'
