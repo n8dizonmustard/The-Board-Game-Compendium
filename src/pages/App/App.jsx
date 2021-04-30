@@ -63,8 +63,8 @@ function App() {
   }
 
   useEffect(() => {
-    setUserFavorites(user.favorites)
-  }, [])
+    user ? setUserFavorites(user.favorites) : setUserFavorites([])
+  }, [user])
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
