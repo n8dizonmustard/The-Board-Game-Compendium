@@ -3,7 +3,7 @@ import './BoardgamesPage.css';
 import PageHeader from '../../components/Header/Header';
 import BoardgameList from '../../components/BoardgameList/BoardgameList';
 
-export default function BoardgamesPage({ user, handleLogout, bgData, atlasApiUrl, handleFavorite, userFavorites }){
+export default function BoardgamesPage({ user, handleLogout, bgData, atlasApiUrl, handleFavorite, userFavorites, isProfile }){
 
     // console.log('TYPE TEST IN BG PAGE', typeof(userFavorites))
 
@@ -17,6 +17,7 @@ export default function BoardgamesPage({ user, handleLogout, bgData, atlasApiUrl
                 handleFavorite={handleFavorite}
                 user={user}
                 userFavorites={userFavorites}
+                isProfile={false}
             />
         </>
     )

@@ -55,7 +55,7 @@ function App() {
 
       try{
           const data = await UserService.handleFavDatabase(gameId)
-          console.log('APP TEST:', data)
+          // console.log('APP TEST:', data)
           setUserFavorites(data)
       } catch(err){
           console.log(err, 'ERR from handleFavorite')
@@ -97,7 +97,7 @@ function App() {
                     />
                 </Route>
                 <Route exact path='/:username'>
-                  <ProfilePage user={user} atlasApiUrl={atlasApiUrl} />
+                  <ProfilePage user={user} userFavorites={userFavorites} />
                 </Route>
             </Switch>
             </>
