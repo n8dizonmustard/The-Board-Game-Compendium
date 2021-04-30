@@ -1,3 +1,7 @@
-.favorite {
-    background-color: red;
+#favorite {
+    background-color: yellow;
+}
+
+#not-favorite {
+    background-color: white;
 }

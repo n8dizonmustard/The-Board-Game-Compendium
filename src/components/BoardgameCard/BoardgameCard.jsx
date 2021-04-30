@@ -2,11 +2,22 @@ import React from 'react';
 import './BoardgameCard.css';
 import { Link } from 'react-router-dom';
 import { Card, Image, Button, Icon } from 'semantic-ui-react';
-import * as usersApi from '../../utils/userService';
 
-export default function BoardgameCard({ name, image, id, handleFavorite, user }){
+export default function BoardgameCard({ name, image, id, handleFavorite, user, userFavorites }){
 
-    // async function 
+
+    // console.log(userFavorites.length, '<-# of games in favs')
+    
+    // console.log(userFavorites, 'USER FAVS')
+    
+    const yellow = {
+        backgroundColor: 'yellow'
+    }
+    const blue = {
+        backgroundColor: 'blue'
+    }
+    
+    const favColor = userFavorites.includes(id) ? yellow : blue;
 
     return (
         <Card>
@@ -17,10 +28,15 @@ export default function BoardgameCard({ name, image, id, handleFavorite, user })
                     </Image.Group>
                 </Link>
             </Card.Header>
-            <Button className='favorite' icon animated='vertical' onClick={() => handleFavorite(id)}>
+            <Button
+                className='favorite'
+                icon animated='vertical'
+                onClick={() => handleFavorite(id)}
+                style={favColor}
+            >
                 <Button.Content hidden>Add to Favorites</Button.Content>
                 <Button.Content visible>
-                    <Icon name='star' />
+                    <Icon name='star' color='white'/>
                 </Button.Content>
             </Button>
         </Card>

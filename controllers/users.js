@@ -78,30 +78,27 @@ function createJWT(user) {
 
 // HANDLE FAVORITE FUNCTION
 async function addOrRemoveFavorite(req, res){
-  console.log('addOrRemoveFavorite controller FIRING')
-  // console.log('THE USER:', req.user)
-  // let bgId = req.body.gameId
-  // let usersFavs = req.user.favorites
 
   const user = await User.findById(req.user._id)
-  console.log('USER FAVS', user.favorites)
+  // console.log('USER FAVS', user.favorites)
   
   try {
-    let newFavs = [];
     if(user.favorites.includes(req.body.gameId)){
-      newFavs = user.favorites.filter(gId => gId !== req.body.gameId)
-      user.favorites = newFavs
+      user.favorites.remove(req.body.gameId)
       await user.save()
       // console.log('SAVED!')
       console.log(user.favorites, 'USERS CURRENT FAVS')
-      res.status(201).json(newFavs)
+      res.status(201).json(user.favorites)
+      // console.log('TYPE TEST IN USER CTRL:', typeof(newFavs))
 
     } else {
-      newFavs = user.favorites.push(req.body.gameId)
+      user.favorites.push(req.body.gameId)
       await user.save()
       // console.log('SAVED!')
       console.log(user.favorites, 'USERS CURRENT FAVS')
-      res.status(201).json(newFavs)
+      res.status(201).json(user.favorites)
+      // console.log('TYPE TEST IN USER CTRL:', typeof(newFavs))
+
     }
     
   } catch(err){

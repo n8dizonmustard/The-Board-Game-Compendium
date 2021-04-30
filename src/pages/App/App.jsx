@@ -28,13 +28,11 @@ function App() {
 
 // API DATA
   // console.log(`${i}: ${data.games[i].name}`) // This is for calling bg name w/in data
-  // const [atlasApiUrl, setApiUrl] = useState('https://api.boardgameatlas.com/api/search?name=Catan&pretty=true&client_id=z3qRKx4kGS')
-
+  
   const [bgData, setBgData] = useState()
-
-  // let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?name=Catan&pretty=true&client_id=z3qRKx4kGS' // Catan example by API
-
-  let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?categories?name=Adventure&limit=50&client_id=z3qRKx4kGS' // by adventure category
+  
+  let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?categories?name=Adventure&limit=5&client_id=z3qRKx4kGS' // by adventure category
+  // let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?name=Catan&pretty=true&client_id=z3qRKx4kGS'
   
   useEffect(() => {
       fetch(atlasApiUrl)
@@ -48,21 +46,25 @@ function App() {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-// FUNCTIONS FOR ADDING FAVORITE GAME TO PROFILE/DATABASE
+// FUNCTIONS FOR ADDING/REMOVING FAVORITE GAME TO PROFILE/DATABASE
   const [userFavorites, setUserFavorites] = useState([])
+  // console.log(typeof(userFavorites), '<-USER FAVS TEST IN APP')
 
   async function handleFavorite(gameId){
-      // console.log(gameId, 'THIS IS GAME ID')
+      // console.log('App - gameId:', gameId)
+
       try{
           const data = await UserService.handleFavDatabase(gameId)
-          // console.log('Data from handleFavorite:', data)
+          console.log('APP TEST:', data)
           setUserFavorites(data)
-
-
       } catch(err){
           console.log(err, 'ERR from handleFavorite')
       }
   }
+
+  useEffect(() => {
+    setUserFavorites(user.favorites)
+  }, [])
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -90,7 +92,9 @@ function App() {
                       handleLogout={handleLogout}
                       atlasApiUrl={atlasApiUrl}
                       bgData={bgData}
-                      handleFavorite={handleFavorite}/>
+                      handleFavorite={handleFavorite}
+                      userFavorites={userFavorites}
+                    />
                 </Route>
                 <Route exact path='/:username'>
                   <ProfilePage user={user} atlasApiUrl={atlasApiUrl} />

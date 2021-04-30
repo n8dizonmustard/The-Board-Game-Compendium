@@ -4,9 +4,12 @@ import { Card, Image } from 'semantic-ui-react';
 import React, {useState, useEffect} from 'react';
 import BoardgameCard from '../BoardgameCard/BoardgameCard';
 
-export default function BoardgameList({ atlasApiUrl, bgData, handleFavorite, user }){
+export default function BoardgameList({ atlasApiUrl, bgData, handleFavorite, user, userFavorites }){
 
     const [boardgames, setBoardgames] = useState([])
+
+    // console.log('USER FAVS', userFavorites)
+    // console.log('TYPE TEST:', typeof(userFavorites))
 
     useEffect(() => {
         if(bgData === undefined || boardgames.length === 0){
@@ -27,6 +30,7 @@ export default function BoardgameList({ atlasApiUrl, bgData, handleFavorite, use
                     key={`${boardgame.name}`}
                     handleFavorite={handleFavorite}
                     user={user}
+                    userFavorites={userFavorites}
                 />
         )
     })
