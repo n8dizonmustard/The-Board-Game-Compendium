@@ -8,36 +8,35 @@ export default function BoardgameList({ atlasApiUrl, bgData, handleFavorite, use
 
     const [boardgames, setBoardgames] = useState([])
 
-    // console.log('USER FAVS', userFavorites)
+    console.log('USER FAVS', userFavorites)
     // console.log('TYPE TEST:', typeof(userFavorites))
     // console.log(boardgames)
 
     useEffect(() => {
-        if(bgData === undefined || boardgames.length === 0){
-            fetch(atlasApiUrl)
-            .then((res) => res.json())
-            .then((data) => {
-                setBoardgames(data.games)
-            })
-        }
+        fetch(atlasApiUrl)
+        .then((res) => res.json())
+        .then((data) => {
+            setBoardgames(data.games)
+            // console.log(data.games)
+        })
     }, [])
 
 
-    let favIds = userFavorites.map(game => game.id)
-    // console.log('Game IDs in userFavorites:', favIds)
 
     return (
         <>
-        {boardgames.length < 1 ? // ARE GAMES LOADING?
+        {// PART 1
+        boardgames.length < 1 && userFavorites.length < 1 ? // ARE GAMES LOADING?
             <>
             <h1>LOADING BOARD GAMES...</h1>
             <Image size='small' src='https://icon-library.com/images/hammer-icon-png/hammer-icon-png-18.jpg' />
             </>
 
         :
-
-            <Card.Group itemsPerRow={5} stackable>
-                {boardgames.map(boardgame => 
+            // PART 2
+            isProfile ?
+            <Card.Group itemsPerRow={3} stackable>
+                {userFavorites.map(boardgame => 
                     <BoardgameCard
                         name={boardgame.name}
                         image={boardgame.image_url}
@@ -46,9 +45,26 @@ export default function BoardgameList({ atlasApiUrl, bgData, handleFavorite, use
                         handleFavorite={handleFavorite}
                         user={user}
                         userFavorites={userFavorites}
-                        isProfile={isProfile}
                         boardgame={boardgame}
-                    />)}
+                    />)
+                }
+            </Card.Group>
+
+        :
+            // PART 3
+            <Card.Group itemsPerRow={5} stackable>
+            {boardgames.map(boardgame => 
+                <BoardgameCard
+                    name={boardgame.name}
+                    image={boardgame.image_url}
+                    id={boardgame.id}
+                    key={`${boardgame.name}`}
+                    handleFavorite={handleFavorite}
+                    user={user}
+                    userFavorites={userFavorites}
+                    boardgame={boardgame}
+                />)
+            }
             </Card.Group>
         }
         </>

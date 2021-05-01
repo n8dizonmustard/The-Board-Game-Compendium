@@ -20,7 +20,7 @@ export default function BoardgameCard({ boardgame, name, image, id, handleFavori
     // }
 
     let favColor = favIds.find(game => game === id) ? 'yellow' : ''
-    let starColor = favIds.find(game => game === id) ? 'black' : 'yellow'
+    let starColor = favIds.find(game => game === id) ? 'black' : ''
     let buttonText = favIds.find(game => game === id) ? 'Remove from Favorites' : 'Add to Favorites'
 
 

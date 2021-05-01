@@ -1,6 +1,8 @@
 .App {
   text-align: center;
-  background-color: #751aff;
+  background-color: maroon;
+  /* background-image: url('./bg-wallpaper.jpg'); */
+  height: 100%;
 }
 
 .App-logo {
