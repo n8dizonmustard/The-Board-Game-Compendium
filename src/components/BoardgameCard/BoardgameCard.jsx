@@ -5,19 +5,24 @@ import { Card, Image, Button, Icon } from 'semantic-ui-react';
 
 export default function BoardgameCard({ boardgame, name, image, id, handleFavorite, user, userFavorites }){
 
+    // console.log('USER FAVS IN BG CARD', userFavorites)
+    // console.log('boardgame:', id) // returns every bg object
+    
+    let favIds = userFavorites.map(game => game.id)
+    // console.log('ids in userfavs:', favIds) // returns ids of every bg in userFavs
 
-    // console.log(userFavorites.length, '<-# of games in favs')
-    
-    // console.log(userFavorites, 'USER FAVS')
-    
-    const yellow = {
-        backgroundColor: 'yellow'
-    }
-    const blue = {
-        backgroundColor: 'blue'
-    }
-    
-    // const favColor = userFavorites.includes(id) ? yellow : blue;
+    // for(let i=0; i<favIds.length; i++){
+    //     if(favIds[i] === id) {
+    //         console.log(`${favIds[i]} matches ${name}, ${id}`)
+    //     } else {
+    //         console.log(`${favIds[i]} does not match ${name}, ${id}`)
+    //     }
+    // }
+
+    let favColor = favIds.find(game => game === id) ? 'yellow' : ''
+    let starColor = favIds.find(game => game === id) ? 'black' : 'yellow'
+    let buttonText = favIds.find(game => game === id) ? 'Remove from Favorites' : 'Add to Favorites'
+
 
     return (
         <Card>
@@ -32,11 +37,11 @@ export default function BoardgameCard({ boardgame, name, image, id, handleFavori
                 className='favorite'
                 icon animated='vertical'
                 onClick={() => handleFavorite(boardgame)}
-                // style={favColor}
+                color={favColor}
             >
-                <Button.Content hidden>Add to Favorites</Button.Content>
+                <Button.Content hidden>{buttonText}</Button.Content>
                 <Button.Content visible>
-                    <Icon name='star' color='white'/>
+                    <Icon name='star' color={starColor}/>
                 </Button.Content>
             </Button>
         </Card>

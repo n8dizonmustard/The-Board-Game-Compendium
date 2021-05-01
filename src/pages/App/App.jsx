@@ -57,7 +57,6 @@ function App() {
       const data = await UserService.getUserFavDatabase()
       // console.log('DATA from APP getUserFavs:', data)
       setUserFavorites(data)
-      console.log('userFavs set!', userFavorites)
     } catch(err) {
       console.log(err, 'ERR from getUserFavorites')
     }
@@ -69,7 +68,7 @@ function App() {
 
 
   async function handleFavorite(boardgame){
-      console.log('BOARD GAME:', boardgame.handle)
+      // console.log('BOARD GAME:', boardgame.handle)
 
       try{
           const data = await UserService.handleFavDatabase(boardgame)

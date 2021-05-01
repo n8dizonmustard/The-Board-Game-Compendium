@@ -23,7 +23,8 @@ export default function BoardgameList({ atlasApiUrl, bgData, handleFavorite, use
     }, [])
 
 
-    // console.log(boardgames, 'THESE ARE THE BG STATE')
+    let favIds = userFavorites.map(game => game.id)
+    // console.log('Game IDs in userFavorites:', favIds)
 
     return (
         <>
@@ -33,37 +34,9 @@ export default function BoardgameList({ atlasApiUrl, bgData, handleFavorite, use
             <Image size='small' src='https://icon-library.com/images/hammer-icon-png/hammer-icon-png-18.jpg' />
             </>
 
-            // : isProfile ? // IF GAMES NOT LOADING, IS BG LIST ON PROFILE PAGE?
-
-
-// CURRENT CODE: for every bg in boardgames array, return new array as BG Card
-// NEW CODE: for every bg in boardgames array,
-//  1) verify bg id matches an id in userFavs 
-//  2) if true, render that bg as BG Card
-
         :
-        //     <Card.Group itemsPerRow={4} stackable>
-        //         { 
 
-
-
-        //             <BoardgameCard
-        //                 boardgame={boardgame}
-        //                 name={boardgame.name}
-        //                 image={boardgame.image_url}
-        //                 id={boardgame.id}
-        //                 key={`${boardgame.name}`}
-        //                 handleFavorite={handleFavorite}
-        //                 user={user}
-        //                 userFavorites={userFavorites}
-        //                 isProfile={isProfile}
-        //             />
-        //         }
-        //    </Card.Group>
-
-        //     : // IF BG LIST IS NOT ON PROFILE PAGE RENDER THIS...
-
-            <Card.Group itemsPerRow={4} stackable>
+            <Card.Group itemsPerRow={5} stackable>
                 {boardgames.map(boardgame => 
                     <BoardgameCard
                         name={boardgame.name}

@@ -84,7 +84,7 @@ async function getUserFavorites(req, res){
 
   try {
     res.status(201).json(user.favorites)
-    console.log('send successful!', user.favorites)
+    // console.log('send successful!', user.favorites)
 
   } catch(err){
     console.log(err, 'ERROR from getUserFavorites')
