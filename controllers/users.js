@@ -9,7 +9,8 @@ const s3 = new S3(); // initialize the construcotr
 module.exports = {
   signup,
   login,
-  addOrRemoveFavorite
+  addOrRemoveFavorite,
+  getUserFavorites
 };
 
 function signup(req, res) {
@@ -75,7 +76,24 @@ function createJWT(user) {
 }
 
 //////////////////////////////////////////////////////////////////////////////////
+// GET ALL USER FAVORITES FUNCTION
 
+async function getUserFavorites(req, res){
+
+  const user = await User.findById(req.user._id)
+
+  try {
+    res.status(201).json(user.favorites)
+    console.log('send successful!', user.favorites)
+
+  } catch(err){
+    console.log(err, 'ERROR from getUserFavorites')
+  }
+  
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////
 // HANDLE FAVORITE FUNCTION
 async function addOrRemoveFavorite(req, res){
   

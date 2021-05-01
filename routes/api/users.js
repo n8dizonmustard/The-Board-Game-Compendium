@@ -7,6 +7,7 @@ const upload = multer();
 router.post('/signup', upload.single('photo'), usersCtrl.signup);
 router.post('/login', usersCtrl.login);
 router.post('/favorite', usersCtrl.addOrRemoveFavorite);
+router.get('/getfavorites', usersCtrl.getUserFavorites);
 
 /*---------- Protected Routes ----------*/
 
