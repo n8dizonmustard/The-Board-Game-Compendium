@@ -3,7 +3,7 @@ import { Image } from 'semantic-ui-react';
 import PageHeader from '../../components/Header/Header';
 import BoardgameList from '../../components/BoardgameList/BoardgameList';
 
-export default function ProfilePage({ user, userFavorites }){
+export default function ProfilePage({ user, userFavorites, handleFavorite }){
 
     // console.log('this is user info', user)
 
@@ -22,7 +22,7 @@ export default function ProfilePage({ user, userFavorites }){
         <p style={style}>{
             user.favorites.length === 0 ? 'You have no games added to your Favorites yet' : 'Favorites will appear here'
         }</p>
-        <BoardgameList userFavorites={userFavorites} isProfile={true}/>
+        <BoardgameList userFavorites={userFavorites} isProfile={true} handleFavorite={handleFavorite}/>
         </>
     )
 }

@@ -110,7 +110,7 @@ function App() {
                     />
                 </Route>
                 <Route exact path='/:username'>
-                  <ProfilePage user={user} userFavorites={userFavorites} />
+                  <ProfilePage user={user} userFavorites={userFavorites} handleFavorite={handleFavorite} />
                 </Route>
             </Switch>
             </>
