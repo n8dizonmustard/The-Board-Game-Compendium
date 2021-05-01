@@ -76,63 +76,43 @@ function createJWT(user) {
 
 //////////////////////////////////////////////////////////////////////////////////
 
+
 // HANDLE FAVORITE FUNCTION
 async function addOrRemoveFavorite(req, res){
-
-  const user = await User.findById(req.user._id)
- 
-  user.favorites.map(x => console.log(x.handle, 'TITLES IN FAVS'))
   
-  // console.log(req.body.boardgame.id, 'REQ.BODY')
+  const user = await User.findById(req.user._id)
+  const newBg = req.body.boardgame
 
   try {
-    // CODE 1A
-    if (user.favorites.length < 1){ // if user favs is empty
-      user.favorites.push(req.body.boardgame) // add new game to user favs
-      console.log(`FAVS EMPTY. ADDING ${req.body.boardgame.handle} TO FAVS`)
-      await user.save() // save the user
+    // if favs are NOT EMPTY
+    if (user.favorites.length > 0 && user.favorites.find(game => game.id === newBg.id)){
+      user.favorites.remove(user.favorites.find(game => game.id === newBg.id)) // remove the game in favs
+      console.log('WE FOUND A MATCH -REMOVED!')
 
-      // CHECK FAVS
-      // for(let game of user.favorites) {
-      //     console.log(game.handle, 'IS IN FAVS. END CODE 1A')
-      // }
+/////////////////////////////////////////////////////////////
+    
+    // if favs ARE EMPTY
+    } else {
+      console.log('NO MATCH FOUND')
+      user.favorites.push(newBg)
+      console.log(`${newBg.handle}, ${newBg.id} -ADDED!`)
+    }
 
-    // CODE 1B
-    } else { // if user favs is not empty
-      for (let game of user.favorites){ // loop through each game in favs
+/////////////////////////////////////////////////////////////
 
-        // CODE 1Bi
-        if(game.handle === req.body.boardgame.handle || game === null){ // if game = new game 
-          user.favorites.remove(game) // remove game from user favs
-          console.log(`REMOVING ${req.body.boardgame.handle} FROM FAVS`)
-          await user.save() // save the user
+    // save the user and send back data
+    await user.save()
+    console.log('user saved!')
+    res.status(201).json(user.favorites)
+    console.log('successful response!')
 
-          // CHECK FAVS
-          // if(user.favorites < 1){
-          //   console.log('USER FAVS EMPTY! END CODE 1Bi-A')
-          // } else {
-          //   for(let game of user.favorites) {
-          //     console.log(game.handle, 'IS IN FAVS. END CODE 1Bi-B')
-          //   }
-          // }
-          
-
-        // CODE 1Bii  
-        } else { // if game != new game
-          user.favorites.push(req.body.boardgame) // add new game to favs
-          console.log(`ADDING ${req.body.boardgame.handle} TO FAVS`)
-          await user.save() // save user
-          // CHECK FAVS!!!
-          // if(user.favorites < 1){
-          //   console.log('USER FAVS EMPTY! END CODE 1Bii-A')
-          // } else {
-          //   for(let game of user.favorites) {
-          //     console.log(game.handle, 'IS IN FAVS. END CODE 1Bii-B')
-          //   }
-          // }
-        }
-        return
+    // LOG WHAT'S IN FAVS
+    if (user.favorites.length > 0){
+      for(let game of user.favorites){
+        console.log('IN FAVS:', game.handle, '...END CODE!')
       }
+    } else {
+      console.log('FAVS EMPTY...END CODE!')
     }
     
     
@@ -141,3 +121,79 @@ async function addOrRemoveFavorite(req, res){
     console.log('ERROR:', err)
   }  
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+  try {
+
+    // IF THERE IS/ARE GAME(S) IN FAVS
+    if(user.favorites.length > 0){
+      for(let i=0; i<user.favorites.length; i++){
+        // console.log(user.favorites[i].handle)
+
+        // if match or null, then remove!
+        if(user.favorites[i].id === req.body.boardgame.id || user.favorites[i] === null){
+          user.favorites.remove(user.favorites[i]) // remove the game in favs
+          console.log(`${user.favorites[i].handle}, ${user.favorites[i].id} ~MATCHED~ ${req.body.boardgame.handle}, ${req.body.boardgame.id} -REMOVED`)
+          await user.save()
+          res.status(201).json(user.favorites)
+
+          //CHECK A
+          if(user.favorites.length < 1){
+            console.log('USER FAVS EMPTY! END CHECK A1')
+          } else {
+            for(let game of user.favorites) {
+              console.log('IN FAVS:', game.handle, '...END CHECK A2')
+            }
+          }
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+        // if no match, then add!
+        } else if (user.favorites.length {
+          user.favorites.push(req.body.boardgame)
+          console.log(`Favs empty! ${req.body.boardgame.handle}, ${req.body.boardgame.id} -ADDED! (from loop)`)
+          await user.save()
+          res.status(201).json(user.favorites)
+
+          //CHECK B
+          if(user.favorites.length < 1){
+            console.log('USER FAVS EMPTY! END CHECK B1')
+          } else {
+            for(let game of user.favorites) {
+              console.log('IN FAVS:', game.handle, '...END CHECK B2')
+            }
+          }
+
+
+        }
+      }
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+    // IF FAVS ARE EMPTY
+    } else {
+      user.favorites.push(req.body.boardgame)
+      console.log(`Favs empty! ${req.body.boardgame.handle}, ${req.body.boardgame.id} -ADDED!`)
+      await user.save()
+      res.status(201).json(user.favorites)
+      
+
+      //CHECK C
+      for(let game of user.favorites) {
+        console.log('IN FAVS:', game.handle, '...END CHECK C')
+      }
+    }
+
+
+*/

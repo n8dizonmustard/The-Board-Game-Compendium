@@ -17,7 +17,7 @@ export default function BoardgameCard({ boardgame, name, image, id, handleFavori
         backgroundColor: 'blue'
     }
     
-    const favColor = userFavorites.includes(id) ? yellow : blue;
+    // const favColor = userFavorites.includes(id) ? yellow : blue;
 
     return (
         <Card>
@@ -32,7 +32,7 @@ export default function BoardgameCard({ boardgame, name, image, id, handleFavori
                 className='favorite'
                 icon animated='vertical'
                 onClick={() => handleFavorite(boardgame)}
-                style={favColor}
+                // style={favColor}
             >
                 <Button.Content hidden>Add to Favorites</Button.Content>
                 <Button.Content visible>
