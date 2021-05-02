@@ -96,42 +96,34 @@ async function getUserFavorites(req, res){
 //////////////////////////////////////////////////////////////////////////////////
 // HANDLE FAVORITE FUNCTION
 async function addOrRemoveFavorite(req, res){
-  
   const user = await User.findById(req.user._id)
   const newBg = req.body.boardgame
-
   try {
     // if favs are NOT EMPTY
     if (user.favorites.length > 0 && user.favorites.find(game => game.id === newBg.id)){
       user.favorites.remove(user.favorites.find(game => game.id === newBg.id)) // remove the game in favs
       console.log('WE FOUND A MATCH -REMOVED!')
-
 /////////////////////////////
-    
     // if favs ARE EMPTY
     } else {
       console.log('NO MATCH FOUND')
       user.favorites.push(newBg)
-      console.log(`${newBg.handle}, ${newBg.id} -ADDED!`)
+      console.log(`${newBg.name}, ${newBg.id} -ADDED!`)
     }
-
 /////////////////////////////
-
     // save the user and send back data
     await user.save()
     console.log('user saved!')
     res.status(201).json(user.favorites)
     console.log('successful response!')
-
     // LOG WHAT'S IN FAVS
     if (user.favorites.length > 0){
       for(let game of user.favorites){
-        console.log('IN FAVS:', game.handle, '...END CODE!')
+        console.log('IN FAVS:', game.name, '...END CODE!')
       }
     } else {
       console.log('FAVS EMPTY...END CODE!')
     }
-    
   } catch(err){
     res.json({data: err})
     console.log('ERROR:', err)

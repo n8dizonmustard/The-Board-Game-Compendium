@@ -5,13 +5,13 @@ import React, {useState, useEffect} from 'react';
 import BoardgameCard from '../BoardgameCard/BoardgameCard';
 import './BoardgameList.css';
 
-export default function BoardgameList({ atlasApiUrl, bgData, handleFavorite, user, userFavorites, isProfile, boardgame }){
+export default function BoardgameList({ atlasApiUrl, bgData, handleFavorite, user, userFavorites, isProfile }){
 
     const [boardgames, setBoardgames] = useState([])
 
-    console.log('USER FAVS', userFavorites)
+    // console.log('USER FAVS', userFavorites)
     // console.log('TYPE TEST:', typeof(userFavorites))
-    // console.log(boardgames)
+    // console.log('BG DATA:', bgData)
 
     useEffect(() => {
         fetch(atlasApiUrl)
@@ -26,16 +26,17 @@ export default function BoardgameList({ atlasApiUrl, bgData, handleFavorite, use
         <>{
 
         // PART 1: if userFavs are empty, render loading
-        userFavorites.length < 1 && boardgames.length < 1 ?
+        userFavorites.length < 1 && isProfile ?
+        // userFavorites.length < 1 && boardgames.length < 1 ?
             <>
-            <h1>LOADING...</h1>
+            <h3>You have no board games saved to your Favorites.</h3>
             </>
 
         :
         // PART 2: if userFavs are NOT empty, check if page isProfile
         //      if isProfile == true, render userFavs
         isProfile ?
-        <Card.Group itemsPerRow={3} stackable>
+        <Card.Group itemsPerRow={5} stackable>
             {userFavorites.map(boardgame => 
                 <BoardgameCard
                     name={boardgame.name}

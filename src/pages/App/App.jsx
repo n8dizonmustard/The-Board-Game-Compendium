@@ -7,7 +7,6 @@ import userService from '../../utils/userService'
 import BoardgamesPage from '../BoardgamesPage/BoardgamesPage';
 import GamePage from '../GamePage/GamePage';
 import ProfilePage from '../ProfilePage/ProfilePage';
-import UserService from '../../utils/userService';
 
 function App() {
 // USER, LOGIN, SIGNUP
@@ -49,12 +48,12 @@ function App() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 // FUNCTIONS FOR ADDING/REMOVING FAVORITE GAME TO PROFILE/DATABASE
-  const [userFavorites, setUserFavorites] = useState(user.favorites)
+  const [userFavorites, setUserFavorites] = useState([])
 
   async function getUserFavorites(){
     // console.log('GETTING FAVS FROM', user)
     try {
-      const data = await UserService.getUserFavDatabase()
+      const data = await userService.getUserFavDatabase()
       // console.log('DATA from APP getUserFavs:', data)
       setUserFavorites(data)
     } catch(err) {
@@ -62,17 +61,16 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    getUserFavorites()
-    setUserFavorites(user.favorites)
-  }, [user])
+  // useEffect(() => {
+  //   getUserFavorites()
+  // }, [user])
 
 
-  async function handleFavorite(boardgame){
+  async function handleFavorite(boardgameX){
       // console.log('BOARD GAME:', boardgame.handle)
 
       try{
-          const data = await UserService.handleFavDatabase(boardgame)
+          const data = await userService.handleFavDatabase(boardgameX)
           // console.log('DATA!!!', data)
           setUserFavorites(data)
       } catch(err){
