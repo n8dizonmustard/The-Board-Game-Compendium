@@ -1,0 +1,26 @@
+.user-column {
+    background-color: #ebbd26;
+
+}
+
+.user-info {
+    color: black;
+    border-radius: 5px;
+    text-align: left;
+    margin: auto;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    margin: 10px auto;
+    width: 50%;
+}
+
+
+.favorite-header {
+    color: white;
+    background-color: rgb(18, 0, 131);
+    padding: 10px;
+    opacity: 90%;
+}
