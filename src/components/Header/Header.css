@@ -2,6 +2,28 @@
     color: #751aff;
 }
 
+.title {
+    color: white;
+}
+
 .header-segment {
     background-color: lightblue;
+}
+
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.filter-item {
+    flex-grow: 1;
+    font-size: large;
+    position: relative;
+    top: 20px;
+}
+
+#last {
+    position: absolute;
+    z-index: -10;
 }

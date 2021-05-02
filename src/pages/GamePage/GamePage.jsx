@@ -2,7 +2,6 @@ import React from 'react';
 import './GamePage.css';
 import PageHeader from '../../components/Header/Header';
 import { Grid, Image, Icon } from 'semantic-ui-react';
-import Filter from '../../components/Filter/Filter';
 
 
 export default function GamePage({ user, handleLogout, routerProps, bgData }){
