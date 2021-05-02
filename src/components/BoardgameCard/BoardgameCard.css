@@ -2,18 +2,18 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    justify-content: flex-end; /* this line pushes the titles down but gets buttons at bottom */ 
 }
 
 #card-header {
-
+    color: red;
 }
 
 #card-image {
-
-    margin: 5% auto;
+    margin-bottom: 5%;
 }
 
 #card-button {
-
+    position: absolute;
+    bottom: 0;
+    
 }
