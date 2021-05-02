@@ -1,7 +1,7 @@
 import React from 'react';
 import './GamePage.css';
 import PageHeader from '../../components/Header/Header';
-import { Image } from 'semantic-ui-react';
+import { Grid, Image, Icon } from 'semantic-ui-react';
 import Filter from '../../components/Filter/Filter';
 
 
@@ -28,25 +28,69 @@ export default function GamePage({ user, handleLogout, routerProps, bgData }){
         <>
         <PageHeader user={user} handleLogout={handleLogout} />
         <h1>Boardgame: {name}</h1>
-        <Image src={image} size='medium' floated='left'/>
-        <p className='text'>Players: {
-            minPlayers === maxPlayers ? 'Unknown' : `${minPlayers}-${maxPlayers}`
-        }</p>
-        <p className='text'>Play Time: {
-            minPlaytime === null ? 'Unknown' :
-            ( minPlaytime === maxPlaytime ? `${minPlaytime} minutes` : `${minPlaytime}-${maxPlaytime} minutes`)
-        }</p>
-        <p className='text'>Minimum Age: {
-            minAge === null ? 'Unknown' : minAge
-        }</p>
-        <p className='text'>Published by {publishers}</p>
-        <p className='text'>Release Year: {
-            release === null ? 'Unknown' : `${release}`
-        }</p>
-        <p className='text'>Average Rating: {
-            Math.ceil(rating) === 0 ? 'No Ratings' : `${Math.ceil(rating)}/5`
-        }</p>
-        <p className='text'>{description}</p>
+
+        <Grid columns={6} className='game-specs'>
+            <Grid.Row>
+
+                <Grid.Column>
+                    <Icon id='icon' name='users' size='huge'/>
+                        <p className='text'>Players: {
+                            minPlayers === maxPlayers ? 'Unknown' : `${minPlayers}-${maxPlayers}`
+                        }</p>
+                </Grid.Column>
+
+
+                <Grid.Column>
+                    <Icon id='icon' name='clock' size='huge'/>
+                    <p className='text'>Play Time: {
+                        minPlaytime === null ? 'Unknown' :
+                        ( minPlaytime === maxPlaytime ? `${minPlaytime} minutes` : `${minPlaytime}-${maxPlaytime} minutes`)
+                    }</p>
+                </Grid.Column>
+
+                <Grid.Column>
+                    <Icon id='icon' name='universal access' size='huge' />
+                    <p className='text'>Minimum Age: {
+                        minAge === null ? 'Unknown' : minAge
+                    }</p>
+                </Grid.Column>
+
+                <Grid.Column>
+                    <Icon id='icon' name='building' size='huge' />
+                    <p className='text'>Published by {publishers}</p>
+                </Grid.Column>
+
+                    <Grid.Column>
+                        <Icon id='icon' name='checked calendar' size='huge' />
+                        <p className='text'>Release Year: {
+                            release === null ? 'Unknown' : `${release}`
+                        }</p>
+                    </Grid.Column>
+
+                    <Grid.Column>
+                        <Icon id='icon' name='star' size='huge' />
+                        <p className='text'>Average Rating: {
+                            Math.ceil(rating) === 0 ? 'No Ratings' : `${Math.ceil(rating)}/5`
+                        }</p>
+                    </Grid.Column>
+
+            </Grid.Row>
+        </Grid>
+
+
+        <Grid columns={2}>
+            <Grid.Row>
+                <Grid.Column>
+                    <Image src={image} size='large' centered/>
+                </Grid.Column>
+
+
+                <Grid.Column>
+                    <p className='description'>{description}</p>
+                </Grid.Column>
+
+            </Grid.Row>
+        </Grid>
         </>
     )
 }

@@ -1,3 +1,21 @@
+.game-specs {
+    position: relative;
+    top: 1%;
+}
+
 .text {
+    color: white;
+    font-size: large;
+}
+
+.description {
+    color: white;
+    font-size: large;
+    text-align: left;
+    position: absolute;
+    right: 10%;
+}
+
+#icon {
     color: white;
 }
