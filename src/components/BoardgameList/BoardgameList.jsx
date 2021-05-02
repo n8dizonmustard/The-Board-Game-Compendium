@@ -3,6 +3,7 @@
 import { Card, Image } from 'semantic-ui-react';
 import React, {useState, useEffect} from 'react';
 import BoardgameCard from '../BoardgameCard/BoardgameCard';
+import './BoardgameList.css';
 
 export default function BoardgameList({ atlasApiUrl, bgData, handleFavorite, user, userFavorites, isProfile, boardgame }){
 
@@ -25,10 +26,9 @@ export default function BoardgameList({ atlasApiUrl, bgData, handleFavorite, use
         <>{
 
         // PART 1: if userFavs are empty, render loading
-        userFavorites.length < 1 ?
+        userFavorites.length < 1 && boardgames.length < 1 ?
             <>
-            <h1>LOADING BOARD GAMES...</h1>
-            <Image size='small' src='https://icon-library.com/images/hammer-icon-png/hammer-icon-png-18.jpg' />
+            <h1>LOADING...</h1>
             </>
 
         :
@@ -55,12 +55,11 @@ export default function BoardgameList({ atlasApiUrl, bgData, handleFavorite, use
         boardgames.length < 1 ?
             <>
             <h1>LOADING BOARD GAMES...</h1>
-            <Image size='small' src='https://icon-library.com/images/hammer-icon-png/hammer-icon-png-18.jpg' />
             </>
 
         :
         // PART 4: if boardgames is NOT empty, render boardgames
-        <Card.Group itemsPerRow={5} stackable>
+        <Card.Group itemsPerRow={6} stackable>
         {boardgames.map(boardgame => 
             <BoardgameCard
                 name={boardgame.name}

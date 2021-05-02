@@ -74,16 +74,20 @@ export default function SignUpPage(props){
     color: 'white'
   };
  
-  const purple = {
-    color: '#751aff'
+  const darkblue = {
+    color: '#0C02AA'
   };
+  const ButtonColor = {
+    backgroundColor: '#0C02AA',
+    color: 'white'
+  }
 
     return (
         <>
         <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 450 }}>
               <Header as='h2' style={style} textAlign='center'>
-                <Image src='https://storage.gra.cloud.ovh.net/v1/AUTH_011f6e315d3744d498d93f6fa0d9b5ee/tabletop/media_attachments/files/000/772/199/original/24e7117847c40728.png' /> Sign Up    
+                <Image src='https://dzasv7x7a867v.cloudfront.net/product_photos/81196393/file_59e5befedc_original.png' /> Sign Up    
               </Header>            
                 <Form autoComplete="off"  onSubmit={handleSubmit}>
                 <Segment stacked>               
@@ -128,7 +132,7 @@ export default function SignUpPage(props){
                         />      
                     </Form.Field>
                     <Button
-                      color="blue"
+                      style={ButtonColor}
                       type="submit"
                       className="btn"
                       disabled={invalidForm}
@@ -139,7 +143,7 @@ export default function SignUpPage(props){
                   {error ? <ErrorMessage error={error} /> : null}
                 </Form>
                 <Message>
-                  Already have an account? <Link to='/login' style={purple}>Login</Link>
+                  Already have an account? <Link to='/login' style={darkblue}>Login</Link>
                 </Message>
                 {error ? <ErrorMessage error={error} /> : null}
             </Grid.Column>

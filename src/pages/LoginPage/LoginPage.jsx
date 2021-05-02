@@ -42,12 +42,12 @@ export default function LoginPage(props){
       color: 'white'
     };
 
-    const purple = {
-      color: '#751aff'
+    const darkblue = {
+      color: '#0C02AA'
     };
 
-    const purpleBtn = {
-      backgroundColor: '#751aff',
+    const ButtonColor = {
+      backgroundColor: '#0C02AA',
       color: 'white'
     }
 
@@ -58,7 +58,7 @@ export default function LoginPage(props){
           <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle' backgroundColor='#6600ff' >
             <Grid.Column style={{ maxWidth: 450 }}>
             <Header as='h2' style={style} textAlign='center'>
-            <Image src='https://storage.gra.cloud.ovh.net/v1/AUTH_011f6e315d3744d498d93f6fa0d9b5ee/tabletop/media_attachments/files/000/772/199/original/24e7117847c40728.png' /> Log-in to your account
+            <Image avatar src='https://dzasv7x7a867v.cloudfront.net/product_photos/81196393/file_59e5befedc_original.png' /> Log-in to your account
             </Header>
             <Form  autoComplete="off"  onSubmit={handleSubmit}>
                <Segment stacked>
@@ -80,7 +80,7 @@ export default function LoginPage(props){
                     required
                   />
                 <Button
-                  style={purpleBtn}
+                  style={ButtonColor}
                   fluid size='large'
                   type="submit"
                   className="btn"
@@ -91,7 +91,7 @@ export default function LoginPage(props){
               </Segment>
             </Form>
             <Message>
-              New to us? <Link to='/signup' style={purple}>Sign Up</Link>
+              New to us? <Link to='/signup' style={darkblue}>Sign Up</Link>
             </Message>
             {error ? <ErrorMessage error={error} /> : null}
             </Grid.Column>

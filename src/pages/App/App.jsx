@@ -34,7 +34,7 @@ function App() {
   // let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?categories?name=Adventure&limit=5&client_id=z3qRKx4kGS' // by adventure category
   // let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?name=Catan&pretty=true&client_id=z3qRKx4kGS'
   // let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?limit=100&client_id=z3qRKx4kGS' // GENERIC SEARCH 100, USE ON MONDAY
-  let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?limit=5&client_id=z3qRKx4kGS' // GENERIC SEARCH LIMIT 5 FOR TESTING
+  let atlasApiUrl = 'https://api.boardgameatlas.com/api/search?limit=30&client_id=z3qRKx4kGS' // GENERIC SEARCH LIMIT 5 FOR TESTING
 
   useEffect(() => {
       fetch(atlasApiUrl)
@@ -64,7 +64,8 @@ function App() {
 
   useEffect(() => {
     getUserFavorites()
-  }, [])
+    setUserFavorites(user.favorites)
+  }, [user])
 
 
   async function handleFavorite(boardgame){

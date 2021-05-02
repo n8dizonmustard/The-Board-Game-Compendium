@@ -2,6 +2,7 @@ import React from 'react';
 import { Image } from 'semantic-ui-react';
 import PageHeader from '../../components/Header/Header';
 import BoardgameList from '../../components/BoardgameList/BoardgameList';
+import Filter from '../../components/Filter/Filter';
 
 export default function ProfilePage({ user, userFavorites, handleFavorite }){
 

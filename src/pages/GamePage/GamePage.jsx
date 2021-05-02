@@ -2,6 +2,7 @@ import React from 'react';
 import './GamePage.css';
 import PageHeader from '../../components/Header/Header';
 import { Image } from 'semantic-ui-react';
+import Filter from '../../components/Filter/Filter';
 
 
 export default function GamePage({ user, handleLogout, routerProps, bgData }){

@@ -1,7 +1,7 @@
 import React from 'react';
 import './BoardgameCard.css';
 import { Link } from 'react-router-dom';
-import { Card, Image, Button, Icon } from 'semantic-ui-react';
+import { Card, Image, Button, Icon, Segment } from 'semantic-ui-react';
 
 export default function BoardgameCard({ boardgame, name, image, id, handleFavorite, user, userFavorites }){
 
@@ -25,19 +25,21 @@ export default function BoardgameCard({ boardgame, name, image, id, handleFavori
 
 
     return (
-        <Card>
-            <Card.Header as='h2'>
+        <Card className='card-container'>
+            <Card.Header as='h2' className='card-item' id='card-header'>
                 <Link to={`/boardgames/${id}`}>{name}
-                    <Image.Group >
+                    <Image.Group  className='card-item' id='card-image'>
                         <Image src={image} wrapped ui={false} height='125vh'/>
                     </Image.Group>
                 </Link>
             </Card.Header>
+            
             <Button
-                className='favorite'
                 icon animated='vertical'
                 onClick={() => handleFavorite(boardgame)}
                 color={favColor}
+                className='card-item'
+                id='card-button'
             >
                 <Button.Content hidden>{buttonText}</Button.Content>
                 <Button.Content visible>

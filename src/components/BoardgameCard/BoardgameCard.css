@@ -1,7 +1,19 @@
-#favorite {
-    background-color: yellow;
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    justify-content: flex-end; /* this line pushes the titles down but gets buttons at bottom */ 
 }
 
-#not-favorite {
-    background-color: white;
+#card-header {
+
+}
+
+#card-image {
+
+    margin: 5% auto;
+}
+
+#card-button {
+
 }

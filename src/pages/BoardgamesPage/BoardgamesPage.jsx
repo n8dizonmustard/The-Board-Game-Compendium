@@ -2,6 +2,7 @@ import React from 'react';
 import './BoardgamesPage.css';
 import PageHeader from '../../components/Header/Header';
 import BoardgameList from '../../components/BoardgameList/BoardgameList';
+import Filter from '../../components/Filter/Filter';
 
 export default function BoardgamesPage({ user, handleLogout, bgData, atlasApiUrl, handleFavorite, userFavorites, isProfile }){
 
@@ -11,6 +12,7 @@ export default function BoardgamesPage({ user, handleLogout, bgData, atlasApiUrl
         <>
             <PageHeader user={user} handleLogout={handleLogout} />
             <h1>The Board Game Compendium</h1>
+            <Filter />
             <BoardgameList
                 bgData={bgData}
                 atlasApiUrl={atlasApiUrl}
