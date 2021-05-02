@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './SignupPage.css';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import { Button, Form, Grid, Header, Image, Segment, Message } from 'semantic-ui-react'
 import userService from '../../utils/userService';
@@ -74,11 +75,11 @@ export default function SignUpPage(props){
     color: 'white'
   };
  
-  const darkblue = {
-    color: '#0C02AA'
+  const maroon = {
+    color: 'maroon'
   };
   const ButtonColor = {
-    backgroundColor: '#0C02AA',
+    backgroundColor: 'maroon',
     color: 'white'
   }
 
@@ -87,7 +88,10 @@ export default function SignUpPage(props){
         <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 450 }}>
               <Header as='h2' style={style} textAlign='center'>
-                <Image src='https://dzasv7x7a867v.cloudfront.net/product_photos/81196393/file_59e5befedc_original.png' /> Sign Up    
+                  <div className='signup-header'>
+                    <Image avatar src='https://i.pinimg.com/originals/69/44/f8/6944f8b93dc32ec7e894a04051b7d2f1.png' circular/>
+                    <div className='signup-title-text'>Sign Up</div>
+                  </div>
               </Header>            
                 <Form autoComplete="off"  onSubmit={handleSubmit}>
                 <Segment stacked>               
@@ -143,7 +147,7 @@ export default function SignUpPage(props){
                   {error ? <ErrorMessage error={error} /> : null}
                 </Form>
                 <Message>
-                  Already have an account? <Link to='/login' style={darkblue}>Login</Link>
+                  Already have an account? <Link to='/login' style={maroon}>Login</Link>
                 </Message>
                 {error ? <ErrorMessage error={error} /> : null}
             </Grid.Column>

@@ -1,0 +1,14 @@
+.login-header {
+    background-color: maroon;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.login-title-text {
+    display: inline-block;
+    /* color: maroon; */
+}
+
+.icon {
+    color: white;
+}

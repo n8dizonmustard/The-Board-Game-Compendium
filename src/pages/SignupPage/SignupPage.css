@@ -1,0 +1,10 @@
+.signup-title-text {
+    display: inline-block;
+    /* color: maroon; */
+}
+
+.signup-header {
+    background-color: maroon;
+    border-radius: 5px;
+    padding: 15px;
+}

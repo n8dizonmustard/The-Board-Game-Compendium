@@ -6,6 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: maroon;
+  background-image: url('./pages/App/bg-wallpaper.jpg');
+  background-size: cover;
 }
 
 code {

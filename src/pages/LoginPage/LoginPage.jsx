@@ -42,12 +42,12 @@ export default function LoginPage(props){
       color: 'white'
     };
 
-    const darkblue = {
-      color: '#0C02AA'
+    const maroon = {
+      color: 'maroon'
     };
 
     const ButtonColor = {
-      backgroundColor: '#0C02AA',
+      backgroundColor: 'maroon',
       color: 'white'
     }
 
@@ -58,7 +58,10 @@ export default function LoginPage(props){
           <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle' backgroundColor='#6600ff' >
             <Grid.Column style={{ maxWidth: 450 }}>
             <Header as='h2' style={style} textAlign='center'>
-            <Image avatar src='https://dzasv7x7a867v.cloudfront.net/product_photos/81196393/file_59e5befedc_original.png' /> Log-in to your account
+            <div className='login-header'>
+              <Image avatar src='https://i.pinimg.com/originals/69/44/f8/6944f8b93dc32ec7e894a04051b7d2f1.png' className='icon' />
+              <div className='login-title-text'>Log-in to your account</div>
+            </div>
             </Header>
             <Form  autoComplete="off"  onSubmit={handleSubmit}>
                <Segment stacked>
@@ -91,7 +94,7 @@ export default function LoginPage(props){
               </Segment>
             </Form>
             <Message>
-              New to us? <Link to='/signup' style={darkblue}>Sign Up</Link>
+              New to us? <Link to='/signup' style={maroon}>Sign Up</Link>
             </Message>
             {error ? <ErrorMessage error={error} /> : null}
             </Grid.Column>

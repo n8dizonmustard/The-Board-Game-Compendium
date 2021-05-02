@@ -11,7 +11,7 @@ export default function PageHeader({user, handleLogout}){
     }
 
     const headerColor={
-        backgroundColor: '#0000cc'
+        backgroundColor: 'maroon'
     } 
 
     return (
