@@ -3,7 +3,7 @@ import './BoardgameCard.css';
 import { Link } from 'react-router-dom';
 import { Card, Image, Button, Icon, Segment } from 'semantic-ui-react';
 
-export default function BoardgameCard({ boardgame, name, image, id, handleFavorite, user, userFavorites }){
+export default function BoardgameCard({ boardgame, name, image, id, handleFavorite, userFavorites }){
 
     let favIds = userFavorites.map(game => game.id)
     let favColor = favIds.find(game => game === id) ? 'yellow' : ''
@@ -13,16 +13,7 @@ export default function BoardgameCard({ boardgame, name, image, id, handleFavori
     let boardgameX = {
         name: boardgame.name,
         id: boardgame.id,
-        image_url: boardgame.image_url,
-        description_preview: boardgame.description_preview,
-        min_players: boardgame.min_players,
-        max_players: boardgame.max_players,
-        min_playtime: boardgame.min_playtime,
-        max_playtime: boardgame.max_playtime,
-        min_age: boardgame.min_age,
-        primary_publisher: boardgame.primary_publisher.name,
-        year_published: boardgame.year_published,
-        average_user_rating: boardgame.average_user_rating
+        image_url: boardgame.image_url
     }
 
     return (

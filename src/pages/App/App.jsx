@@ -51,7 +51,7 @@ function App() {
   const [userFavorites, setUserFavorites] = useState([])
 
   async function getUserFavorites(){
-    // console.log('GETTING FAVS FROM', user)
+    console.log('GETTING FAVS FROM USER')
     try {
       const data = await userService.getUserFavDatabase()
       // console.log('DATA from APP getUserFavs:', data)
@@ -61,9 +61,9 @@ function App() {
     }
   }
 
-  // useEffect(() => {
-  //   getUserFavorites()
-  // }, [user])
+  useEffect(() => {
+    getUserFavorites()
+  }, [user])
 
 
   async function handleFavorite(boardgameX){
