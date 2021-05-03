@@ -9,6 +9,8 @@ Visitors and users can find The Board Game Compendium by clicking the link [here
 ### 1. Login / Sign Up
 Visitors will automatically be redirected to the Login Page where they can log in or sign up for an account. Signing up for an account requires the user to input a desired user name, email address, password, bio, and profile pic but upon returning, the user is only required to enter their email address and password to login.
 
+Currently there is a bug that prevents the user to login if they have games saved in their favorites so I plan to resolve this issue as soon as possible.
+
 ![login](./src/pics/login.png)
 
 ![signup](./src/pics/signup.png)
@@ -60,9 +62,9 @@ This app is made possible by consuming the third party API, [Board Game Atlas](h
 
 ## What's Next?
 This app is still under development and hopefully I'll be able to include several features soon!
-- Currently there is a bug that prevents the user to login if they have games saved in their favorites so most of my time currently is to resolve this issue.
+- Currently there is a bug that prevents the user to login if they have games saved in their favorites so I plan to resolve this issue as soon as possible.
 - If a user is reading a game from its details page, I plan to add an 'Add to Favorites' button on that page too for the user's convenience.
-- This app will soon maximize Board Game Atlas' vast library of data by allowing the user to filter cards on the board games page by the categories found in the header. Afterward, I plan to implement a search bar so users can view cards of games with matching inputs.
+- This app will soon maximize Board Game Atlas' vast library of data by allowing the user to filter cards on the board games page or on profile pages by the categories found in the header. Afterward, I plan to implement a search bar so users can view cards of games with matching inputs. Board Game Atlas has many more categories and for the sake of simplifying the user experience, I only included the most encompassing and popular genres.
 - I plan to add a friends list feature to this app where...
     1. Users can add other users to their friends lists,
     2. Users can view other users' favorite board games, and
