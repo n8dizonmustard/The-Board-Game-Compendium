@@ -1,10 +1,18 @@
-.signup-title-text {
-    display: inline-block;
-    /* color: maroon; */
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap');
+
+.app-title {
+    font-size: 50px;
+    line-height: 50px;
+    font-family: 'Oleo Script Swash Caps', cursive;
+    margin: 5px;
 }
 
 .signup-header {
     background-color: maroon;
     border-radius: 5px;
     padding: 15px;
+}
+
+.signup-title-text {
+    display: inline-block;
 }

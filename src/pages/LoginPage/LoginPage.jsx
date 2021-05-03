@@ -59,8 +59,11 @@ export default function LoginPage(props){
             <Grid.Column style={{ maxWidth: 450 }}>
             <Header as='h2' style={style} textAlign='center'>
             <div className='login-header'>
+              <div>Welcome Back to</div>
+              <div className='app-title'>The Board Game Compendium</div>
               <Image avatar src='https://i.pinimg.com/originals/69/44/f8/6944f8b93dc32ec7e894a04051b7d2f1.png' className='icon' />
               <div className='login-title-text'>Log-in to your account</div>
+              <Image avatar src='https://i.pinimg.com/originals/69/44/f8/6944f8b93dc32ec7e894a04051b7d2f1.png' className='icon' />
             </div>
             </Header>
             <Form  autoComplete="off"  onSubmit={handleSubmit}>

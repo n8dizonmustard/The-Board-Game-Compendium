@@ -89,8 +89,11 @@ export default function SignUpPage(props){
           <Grid.Column style={{ maxWidth: 450 }}>
               <Header as='h2' style={style} textAlign='center'>
                   <div className='signup-header'>
-                    <Image avatar src='https://i.pinimg.com/originals/69/44/f8/6944f8b93dc32ec7e894a04051b7d2f1.png' circular/>
+                    <div>Welcome to</div>
+                    <div className='app-title'>The Board Game Compendium</div>
+                    <Image avatar src='https://i.pinimg.com/originals/69/44/f8/6944f8b93dc32ec7e894a04051b7d2f1.png' className='icon' />
                     <div className='signup-title-text'>Sign Up</div>
+                    <Image avatar src='https://i.pinimg.com/originals/69/44/f8/6944f8b93dc32ec7e894a04051b7d2f1.png' className='icon' />
                   </div>
               </Header>            
                 <Form autoComplete="off"  onSubmit={handleSubmit}>

@@ -13,7 +13,8 @@ export default function PageHeader({user, handleLogout}){
     }
 
     const headerColor={
-        backgroundColor: 'maroon'
+        backgroundColor: 'maroon',
+        height: '175px'
     } 
 
     return (
@@ -28,15 +29,15 @@ export default function PageHeader({user, handleLogout}){
             <Header as='h1' textAlign='center' style={headerFont}>The Board Game Compendium</Header>
 
             <div className='filter-container'>
-                <Link to='/missing-page' className='link' className='filter-item'>Adventure</Link>
-                <Link to='/missing-page' className='link' className='filter-item'>Cooperative</Link>
-                <Link to='/missing-page' className='link' className='filter-item'>Family Games</Link>
-                <Link to='/missing-page' className='link' className='filter-item'>Fantasy</Link>
-                <Link to='/missing-page' className='link' className='filter-item'>Historic</Link>
-                <Link to='/missing-page' className='link' className='filter-item'>Horror</Link>
-                <Link to='/missing-page' className='link' className='filter-item'>Mature</Link>
-                <Link to='/missing-page' className='link' className='filter-item'>Party Games</Link>
-                <Link to='/missing-page' className='link' className='filter-item' id='last'>Party Games</Link>
+                <Link to='/missing-page' className='filter-item'>Adventure</Link>
+                <Link to='/missing-page' className='filter-item'>Cooperative</Link>
+                <Link to='/missing-page' className='filter-item'>Family Games</Link>
+                <Link to='/missing-page' className='filter-item'>Fantasy</Link>
+                <Link to='/missing-page' className='filter-item'>Historic</Link>
+                <Link to='/missing-page' className='filter-item'>Horror</Link>
+                <Link to='/missing-page' className='filter-item'>Mature</Link>
+                <Link to='/missing-page' className='filter-item'>Party Games</Link>
+                <Link to='/missing-page' className='filter-item' id='last'>Party Games</Link>
             </div>
         </Segment>
     )
