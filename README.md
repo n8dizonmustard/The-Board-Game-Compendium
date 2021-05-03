@@ -70,5 +70,7 @@ This app is still under development and hopefully I'll be able to include severa
     2. Users can view other users' favorite board games, and
     3. Users can schedule events to meet with other users and play specific games from one of their favorites.
 
+You can view my progress on my public [Trello Board](https://trello.com/b/OGZnZ3Ga/the-board-game-compendium)
+
 ### Note from the developer:
 Though I'd like to focus on front-end development, utilizing my newly acquired skills from General Assembly is such a gratifying experience. Developing a full stack application in a week was challenging, but I couldn't have been more satisfied with my growth. If you'd like to connect with me to talk about this app, Software Development in general, or any and all board games, please feel free to reach out to me on GitHub or [LinkedIn](https://www.linkedin.com/in/nathaniel-dizon/)!
