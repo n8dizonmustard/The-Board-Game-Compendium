@@ -26,7 +26,7 @@ export default function GamePage({ user, handleLogout, routerProps, bgData }){
     return (
         <>
         <PageHeader user={user} handleLogout={handleLogout} />
-        <h1>Boardgame: {name}</h1>
+        <h1 className='game-specs'>Boardgame: {name}</h1>
 
         <Grid columns={6} className='game-specs'>
             <Grid.Row>

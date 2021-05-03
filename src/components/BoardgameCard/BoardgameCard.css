@@ -21,3 +21,12 @@
 #game-name {
     color: red;
 }
+
+#image {
+    margin: auto;
+    height: 50%;
+}
+
+.title {
+    padding: 10px;
+}
