@@ -1,7 +1,7 @@
 # The Board Game Compendium
 If you and your friends are avid board game collectors like me, you'll know it's difficult to keep track of everything in your collection! The Board Game Compendium allows users to peruse through the vast library of almost every board game ever created and keep track of their collection on an easy-to-use app.
 
-![board-games-page-empty]('./src/pics/boardgames-page-empty.png')
+![board games page](./src/pics/boardgames-page-empty.png)
 
 ## Getting Started:
 Visitors and users can find The Board Game Compendium by clicking the link [here](http://the-board-game-compendium.herokuapp.com/).
