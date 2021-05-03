@@ -9,6 +9,8 @@ Visitors and users can find The Board Game Compendium by clicking the link [here
 ### 1. Login / Sign Up
 Visitors will automatically be redirected to the Login Page where they can log in or sign up for an account. Signing up for an account requires the user to input a desired user name, email address, password, bio, and profile pic but upon returning, the user is only required to enter their email address and password to login.
 
+![login](./src/pics/login.png) ![signup](./src/pics/signup.png)
+
 ### 2. Home Page (Board Games!)
 After logging in or signing up, users will be redirected to the Home Page which shows a long list of the board game cards. Clicking the grey star button at the bottom of a board game card will add that game to the user's favorites. Once clicked, the button will change colors. Clicking the button again will remove the game from the user's favorites. A user can view all their favorite games from their Profile Page.
 
