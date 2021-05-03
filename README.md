@@ -1,7 +1,7 @@
 # The Board Game Compendium
 If you and your friends are avid board game collectors like me, you'll know it's difficult to keep track of everything in your collection! The Board Game Compendium allows users to peruse through the vast library of almost every board game ever created and keep track of their collection on an easy-to-use app.
 
-![board games page](./src/pics/boardgames-page-empty.png)
+![board games page no favorites](./src/pics/boardgames-page-empty.png)
 
 ## Getting Started:
 Visitors and users can find The Board Game Compendium by clicking the link [here](http://the-board-game-compendium.herokuapp.com/).
@@ -9,10 +9,14 @@ Visitors and users can find The Board Game Compendium by clicking the link [here
 ### 1. Login / Sign Up
 Visitors will automatically be redirected to the Login Page where they can log in or sign up for an account. Signing up for an account requires the user to input a desired user name, email address, password, bio, and profile pic but upon returning, the user is only required to enter their email address and password to login.
 
-![login](./src/pics/login.png) ![signup](./src/pics/signup.png)
+![login](./src/pics/login.png)
+
+![signup](./src/pics/signup.png)
 
 ### 2. Home Page (Board Games!)
 After logging in or signing up, users will be redirected to the Home Page which shows a long list of the board game cards. Clicking the grey star button at the bottom of a board game card will add that game to the user's favorites. Once clicked, the button will change colors. Clicking the button again will remove the game from the user's favorites. A user can view all their favorite games from their Profile Page.
+
+![board games page with favorites](./src/pics/boardgames-page.png)
 
 ### 3. Detailed Game Page
 Alternatively, a user can view game details by clicking on a board game's title or image. The user will then redirected to the board game's Game Page, the user can read information regarding the board game:
@@ -24,8 +28,12 @@ Alternatively, a user can view game details by clicking on a board game's title 
 - Average user rating
 - A description of the setting the players can expect
 
+![game page](./src/pics/game-page.png)
+
 ### 4. User Profile Page
 Users can view their Profile Page by clicking on their username or profile picture in the top-left corner of the app. Here, the user can view all the cards of the games they've added to their favorites. They can also view a larger photo of their profile picture and their user bio. Users can remove board games from their favorites by clicking the star button at the bottom of the card.
+
+![profile page](./src/pics/profile-page.png)
 
 ### 5. The Page Header
 Once logging in, users can use the Header component to navigate to important features of the app:
@@ -33,8 +41,12 @@ Once logging in, users can use the Header component to navigate to important fea
 - All board games (home icon, top-right corner)
 - Logout (top-right corner)
 
+![header](./src/header/signup.png)
+
 ### The Board Game Atlas
 This app is made possible by consuming the third party API, [Board Game Atlas](https://www.boardgameatlas.com/api/docs). 
+
+![signup](./src/pics/signup.png)
 
 ## Technologies Used:
 - MongoDB Atlas
@@ -48,12 +60,12 @@ This app is made possible by consuming the third party API, [Board Game Atlas](h
 
 ## What's Next?
 This app is still under development and hopefully I'll be able to include several features soon!
-- Currently there is a bug that prevents the user to login if they have games saved in their favorites. This is my first priority and I hope to implement these fixes as soon as possible!
-- If a user is reading a game from its details page, it makes sense to add an 'Add to Favorites' button on that page too.
-- My hope is to have this app extensively utilize Board Game Atlas' vast library of board games. The Board Games Page will soon be able to allow users to render a new list of board games based on the several categories in the Header.
+- Currently there is a bug that prevents the user to login if they have games saved in their favorites so most of my time currently is to resolve this issue.
+- If a user is reading a game from its details page, I plan to add an 'Add to Favorites' button on that page too for the user's convenience.
+- This app will soon maximize Board Game Atlas' vast library of data by allowing the user to filter cards on the board games page by the categories found in the header. Afterward, I plan to implement a search bar so users can view cards of games with matching inputs.
 - I plan to add a friends list feature to this app where...
-    1. Users can add other users to their friends lists.
-    2. Users can view other users' favorite board games.
+    1. Users can add other users to their friends lists,
+    2. Users can view other users' favorite board games, and
     3. Users can schedule events to meet with other users and play specific games from one of their favorites.
 
 ### Note from the developer:
