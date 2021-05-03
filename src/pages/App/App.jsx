@@ -7,6 +7,7 @@ import userService from '../../utils/userService'
 import BoardgamesPage from '../BoardgamesPage/BoardgamesPage';
 import GamePage from '../GamePage/GamePage';
 import ProfilePage from '../ProfilePage/ProfilePage';
+import MissingPage from '../MissingPage/MissingPage.jsx';
 
 function App() {
 // USER, LOGIN, SIGNUP
@@ -88,6 +89,9 @@ function App() {
           </Route>
           <Route exact path="/signup">
              <SignupPage handleSignUpOrLogin={handleSignUpOrLogin}/>
+          </Route>
+          <Route exact path="/missing-page">
+             <MissingPage user={user} />
           </Route>
           <Route exact path="/">
              <Redirect to='/login'/>

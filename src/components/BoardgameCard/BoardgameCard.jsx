@@ -19,7 +19,7 @@ export default function BoardgameCard({ boardgame, name, image, id, handleFavori
     return (
         <Card className='card-container'>
             <Card.Header as='h2' className='card-item' id='card-header'>
-                <Link to={`/boardgames/${id}`}>{name}
+                <Link to={`/boardgames/${id}`} id='game-name'>{name}
                     <Image.Group  className='card-item' id='card-image'>
                         <Image src={image} wrapped ui={false} height='125vh'/>
                     </Image.Group>

@@ -8,8 +8,8 @@ export default function ProfilePage({ user, userFavorites, handleFavorite }){
 
     // console.log('this is user info', user)
 
-    const black = {
-        color: 'black'
+    const white = {
+        color: 'white'
     }
 
     return (
@@ -20,9 +20,9 @@ export default function ProfilePage({ user, userFavorites, handleFavorite }){
                 <Grid.Column width={3} className='user-column'>
                     <Image src={user.photoUrl} size='medium' circular className='profile-pic'/>
                     <div className='user-info'>
-                        <h1 style={black}>{user.username}'s Profile</h1>
-                        <h4>Email: {user.email}</h4>
-                        <h4>About me: {user.bio}</h4>
+                        <h1 style={white}>{user.username}'s Profile</h1>
+                        <h4 style={white}>Email: {user.email}</h4>
+                        <h4 style={white}>About me: {user.bio}</h4>
                     </div>
                 </Grid.Column>
 

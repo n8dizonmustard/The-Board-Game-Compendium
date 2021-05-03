@@ -1,6 +1,4 @@
-.title {
-    color: white;
-}
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap');
 
 .filter-container {
     display: flex;
@@ -18,4 +16,13 @@
 #last {
     position: absolute;
     z-index: -10;
+}
+
+.link {
+    color: white;
+}
+
+.link:hover {
+    text-decoration: underline;
+    color: rgb(3, 206, 210);
 }
