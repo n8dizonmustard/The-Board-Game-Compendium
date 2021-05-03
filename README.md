@@ -1,6 +1,8 @@
 # The Board Game Compendium
 If you and your friends are avid board game collectors like me, you'll know it's difficult to keep track of everything in your collection! The Board Game Compendium allows users to peruse through the vast library of almost every board game ever created and keep track of their collection on an easy-to-use app.
 
+![board-games-page-empty]('./src/pics/boardgames-page-empty.png')
+
 ## Getting Started:
 Visitors and users can find The Board Game Compendium by clicking the link [here](http://the-board-game-compendium.herokuapp.com/).
 
@@ -49,8 +51,8 @@ This app is still under development and hopefully I'll be able to include severa
 - My hope is to have this app extensively utilize Board Game Atlas' vast library of board games. The Board Games Page will soon be able to allow users to render a new list of board games based on the several categories in the Header.
 - I plan to add a friends list feature to this app where...
     1. Users can add other users to their friends lists.
-    2. Users can view another user's favorite board games.
+    2. Users can view other users' favorite board games.
     3. Users can schedule events to meet with other users and play specific games from one of their favorites.
 
 ### Note from the developer:
-Though I'd like to focus on front-end development, utilizing my newly acquired skills from General Assembly was a gratifying experience. Developing a full stack application in a week was challenging, but I couldn't have been more satisfied with my growth. If you'd like to connect with me to talk about this app, Software Development in general, or any and all board games, please feel free to reach out to me on GitHub or LinkedIn!
+Though I'd like to focus on front-end development, utilizing my newly acquired skills from General Assembly is such a gratifying experience. Developing a full stack application in a week was challenging, but I couldn't have been more satisfied with my growth. If you'd like to connect with me to talk about this app, Software Development in general, or any and all board games, please feel free to reach out to me on GitHub or [LinkedIn](https://www.linkedin.com/in/nathaniel-dizon/)!
