@@ -26,49 +26,47 @@ export default function GamePage({ user, handleLogout, routerProps, bgData }){
     return (
         <>
         <PageHeader user={user} handleLogout={handleLogout} />
-        <h1 className='game-specs'>Boardgame: {name}</h1>
+        {/* <h1 className='game-specs'>Boardgame: {name}</h1> */}
 
         <Grid columns={6} className='game-specs'>
             <Grid.Row>
 
                 <Grid.Column>
-                    <Icon id='icon' name='users' size='huge'/>
-                        <p className='text'>Players: {
-                            minPlayers === maxPlayers ? 'Unknown' : `${minPlayers}-${maxPlayers}`
+                    <Icon id='icon' name='users' size='big'/>
+                        <p className='text'>{
+                            minPlayers === maxPlayers ? 'Unknown' : `${minPlayers}-${maxPlayers} Players`
                         }</p>
                 </Grid.Column>
 
 
                 <Grid.Column>
-                    <Icon id='icon' name='clock' size='huge'/>
-                    <p className='text'>Play Time: {
+                    <Icon id='icon' name='clock' size='big'/>
+                    <p className='text'>{
                         minPlaytime === null ? 'Unknown' :
                         ( minPlaytime === maxPlaytime ? `${minPlaytime} minutes` : `${minPlaytime}-${maxPlaytime} minutes`)
                     }</p>
                 </Grid.Column>
 
                 <Grid.Column>
-                    <Icon id='icon' name='universal access' size='huge' />
-                    <p className='text'>Minimum Age: {
-                        minAge === null ? 'Unknown' : minAge
-                    }</p>
+                    <Icon id='icon' name='universal access' size='big' />
+                    <p className='text'>Min. Age: {minAge === null ? 'Unknown' : minAge}</p>
                 </Grid.Column>
 
                 <Grid.Column>
-                    <Icon id='icon' name='building' size='huge' />
-                    <p className='text'>Published by {publishers}</p>
+                    <Icon id='icon' name='building' size='big' />
+                    <p className='text'>Published by<br/> {publishers}</p>
                 </Grid.Column>
 
                     <Grid.Column>
-                        <Icon id='icon' name='checked calendar' size='huge' />
-                        <p className='text'>Release Year: {
+                        <Icon id='icon' name='checked calendar' size='big' />
+                        <p className='text'>Release Year: <br/> {
                             release === null ? 'Unknown' : `${release}`
                         }</p>
                     </Grid.Column>
 
                     <Grid.Column>
-                        <Icon id='icon' name='star' size='huge' />
-                        <p className='text'>Average Rating: {
+                        <Icon id='icon' name='star' size='big' />
+                        <p className='text'>Average Rating: <br/> {
                             Math.ceil(rating) === 0 ? 'No Ratings' : `${Math.ceil(rating)}/5`
                         }</p>
                     </Grid.Column>

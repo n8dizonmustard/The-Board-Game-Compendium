@@ -14,20 +14,20 @@ export default function PageHeader({user, handleLogout}){
 
     const headerColor={
         backgroundColor: 'maroon',
-        height: '175px'
+        height: '125px'
     } 
 
     return (
         <Segment clearing style={headerColor}>
             <Header as='h2' floated='right'>
-                <Link to='/boardgames'><Icon name='home' className='link'></Icon></Link>
                 <Link to='/login' onClick={handleLogout} className='link'>Logout</Link>
             </Header>
             <Header as='h2' floated='left'>
                 <Link to={`/${user.username}`} className='link'><Image src={user.photoUrl ? user.photoUrl : "https://react.semantic-ui.com/images/wireframe/square-image.png"} avatar></Image>{user.username}</Link>          
             </Header>
-            <Header as='h1' textAlign='center' style={headerFont}>The Board Game Compendium</Header>
-
+            <Header as='h1' textAlign='center' style={headerFont}>
+                <Link to='/boardgames' className='link' id='bgc'>The Board Game Compendium</Link>
+            </Header>
             <div className='filter-container'>
                 <Link to='/missing-page' className='filter-item'>Adventure</Link>
                 <Link to='/missing-page' className='filter-item'>Cooperative</Link>

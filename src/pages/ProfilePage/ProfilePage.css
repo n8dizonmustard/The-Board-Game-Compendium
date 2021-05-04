@@ -1,7 +1,8 @@
 .user-column {
-    background-color: rgb(18, 0, 131);
+    background-color: black;
     border-radius: 15px;
-
+    position: relative;
+    bottom: 15px;
 }
 
 .user-info {
@@ -21,7 +22,9 @@
 
 .favorite-header {
     color: white;
-    background-color: rgb(18, 0, 131);
+    background-color: black;
     padding: 10px;
     opacity: 90%;
+    position: relative;
+    bottom: 15px;
 }

@@ -10,9 +10,8 @@
     flex-grow: 1;
     font-size: large;
     position: relative;
-    top: 20px;
+    bottom: 25px;
     color: white;
-
 }
 
 #last {
@@ -25,6 +24,10 @@
 }
 
 .link:hover, .filter-item:hover {
-    text-decoration: underline;
     color: rgb(3, 206, 210);
+}
+
+#bgc {
+    position: relative;
+    bottom: 25px;
 }

@@ -6,8 +6,7 @@ import { Card, Image, Button, Icon, Segment } from 'semantic-ui-react';
 export default function BoardgameCard({ boardgame, name, image, id, handleFavorite, userFavorites }){
 
     let favIds = userFavorites.map(game => game.id)
-    let favColor = favIds.find(game => game === id) ? 'yellow' : ''
-    let starColor = favIds.find(game => game === id) ? 'black' : ''
+    let favColor = favIds.find(game => game === id) ? 'yellow' : 'black'
     let buttonText = favIds.find(game => game === id) ? 'Remove from Favorites' : 'Add to Favorites'
 
     let boardgameX = {
@@ -19,7 +18,8 @@ export default function BoardgameCard({ boardgame, name, image, id, handleFavori
     return (
         <Card className='card-container'>
             <Card.Header as='h2' className='card-item' id='card-header'>
-                <Link to={`/boardgames/${id}`} id='game-name'><div className='title'>{name}</div>
+                {/* <Link to={`/boardgames/${id}`} id='game-name'><div className='title'>{name}</div> */}
+                <Link to={`/boardgames/${id}`} id='game-name'>
                     <Image.Group  className='card-item' id='card-image'>
                         <Image src={image} wrapped ui={false} height='125vh' id='image'/>
                     </Image.Group>
@@ -35,7 +35,8 @@ export default function BoardgameCard({ boardgame, name, image, id, handleFavori
             >
                 <Button.Content hidden>{buttonText}</Button.Content>
                 <Button.Content visible>
-                    <Icon name='star' color={starColor}/>
+                    {/* <Icon name='star' color={starColor}/> */}
+                    {name}
                 </Button.Content>
             </Button>
         </Card>
