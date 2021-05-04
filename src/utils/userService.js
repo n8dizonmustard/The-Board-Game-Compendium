@@ -64,6 +64,5 @@ export default {
   logout,
   login,
   getUser,
-  handleFavDatabase,
-  getUserFavDatabase
+  handleFavDatabase
 };
