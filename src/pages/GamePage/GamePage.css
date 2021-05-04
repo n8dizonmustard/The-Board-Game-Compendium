@@ -3,7 +3,7 @@
     top: 1%;
     background-color: rgb(18, 0, 131);
     padding: 10px;
-    opacity: 90%;
+    /* opacity: 90%; */
 }
 
 .text {
@@ -19,7 +19,7 @@
     background-color: gold;
     padding: 15px;
     border-radius: 15px;
-    opacity: 85%;
+    /* opacity: 85%; */
 }
 
 #icon {
