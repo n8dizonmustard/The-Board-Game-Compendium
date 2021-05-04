@@ -45,17 +45,6 @@ function login(creds) {
   .then(({token}) => tokenService.setToken(token));
 }
 
-// TRY GETTING USER FAVS
-function getUserFavDatabase(){
-  return fetch(BASE_URL + 'getfavorites', {
-    headers: {
-      'Authorization': 'Bearer ' + tokenService.getToken(),
-      'Content-Type': 'application/json'
-    }
-  }).then(res => res.json())
-
-}
-
 function handleFavDatabase(boardgame){
   // console.log('gameId', gameId)
   return fetch(BASE_URL + 'favorite', {

@@ -10,7 +10,6 @@ module.exports = {
   signup,
   login,
   addOrRemoveFavorite,
-  getUserFavorites
 };
 
 function signup(req, res) {
@@ -74,24 +73,6 @@ function createJWT(user) {
     {expiresIn: '24h'}
   );
 }
-
-//////////////////////////////////////////////////////////////////////////////////
-// GET ALL USER FAVORITES FUNCTION
-
-async function getUserFavorites(req, res){
-
-  const user = await User.findById(req.user._id)
-
-  try {
-    res.status(201).json(user.favorites)
-    // console.log('send successful!', user.favorites)
-
-  } catch(err){
-    console.log(err, 'ERROR from getUserFavorites')
-  }
-  
-}
-
 
 //////////////////////////////////////////////////////////////////////////////////
 // HANDLE FAVORITE FUNCTION

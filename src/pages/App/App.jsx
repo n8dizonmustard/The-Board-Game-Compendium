@@ -51,21 +51,6 @@ function App() {
 // FUNCTIONS FOR ADDING/REMOVING FAVORITE GAME TO PROFILE/DATABASE
   const [userFavorites, setUserFavorites] = useState([])
 
-  async function getUserFavorites(){
-    console.log('GETTING FAVS FROM USER')
-    try {
-      const data = await userService.getUserFavDatabase()
-      // console.log('DATA from APP getUserFavs:', data)
-      setUserFavorites(data)
-    } catch(err) {
-      console.log(err, 'ERR from getUserFavorites')
-    }
-  }
-
-  useEffect(() => {
-    getUserFavorites()
-  }, [user])
-
 
   async function handleFavorite(boardgameX){
       // console.log('BOARD GAME:', boardgame.handle)
