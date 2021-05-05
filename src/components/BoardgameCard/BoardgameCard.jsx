@@ -5,13 +5,12 @@ import { Card, Image, Button, Icon, Segment } from 'semantic-ui-react';
 
 export default function BoardgameCard({ boardgame, name, image, id, handleFavorite, userFavorites }){
 
-    let favIds = userFavorites.map(game => game.id)
-    let favColor = favIds.find(game => game === id) ? 'yellow' : 'black'
-    let buttonText = favIds.find(game => game === id) ? 'Remove from Favorites' : 'Add to Favorites'
+    let favTitles = userFavorites.map(game => game.name)
+    let favColor = favTitles.find(game => game === name) ? 'yellow' : 'black'
+    let buttonText = favTitles.find(game => game === name) ? 'Remove from Favorites' : 'Add to Favorites'
 
     let boardgameX = {
         name: boardgame.name,
-        id: boardgame.id,
         image_url: boardgame.image_url
     }
 
@@ -35,7 +34,6 @@ export default function BoardgameCard({ boardgame, name, image, id, handleFavori
             >
                 <Button.Content hidden>{buttonText}</Button.Content>
                 <Button.Content visible>
-                    {/* <Icon name='star' color={starColor}/> */}
                     {name}
                 </Button.Content>
             </Button>

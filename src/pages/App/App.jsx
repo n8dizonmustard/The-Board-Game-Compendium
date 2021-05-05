@@ -17,6 +17,7 @@ function App() {
 
   function handleSignUpOrLogin(){
     setUser(userService.getUser()) // getting the user from localstorage decoding the jwt
+    // setUserFavorites(user.favoriteBoardgames)
   }
 
   function handleLogout(){

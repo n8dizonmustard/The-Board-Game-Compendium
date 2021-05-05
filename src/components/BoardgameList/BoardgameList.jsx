@@ -9,9 +9,7 @@ export default function BoardgameList({ atlasApiUrl, bgData, handleFavorite, use
 
     const [boardgames, setBoardgames] = useState([])
 
-    // console.log('USER FAVS', userFavorites)
-    // console.log('TYPE TEST:', typeof(userFavorites))
-    // console.log('BG DATA:', bgData)
+    console.log('atlasApiUrl:', atlasApiUrl)
 
     useEffect(() => {
         fetch(atlasApiUrl)
@@ -40,8 +38,7 @@ export default function BoardgameList({ atlasApiUrl, bgData, handleFavorite, use
             {userFavorites.map(boardgame => 
                 <BoardgameCard
                     name={boardgame.name}
-                    image={boardgame.image_url}
-                    id={boardgame.id}
+                    image={boardgame.image}
                     key={`${boardgame.name}`}
                     handleFavorite={handleFavorite}
                     user={user}
